@@ -1,1 +1,1 @@
-print("this is a waste of keys"*543543543433254354354)
+print("this is a waste of 3keys"*543543543433254354354)

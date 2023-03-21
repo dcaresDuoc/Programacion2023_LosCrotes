@@ -1,0 +1,52 @@
+        <ul>
+        <li> <a href = "mia.html"> mia </a> </li>
+        <li> <a href = "molly.html"> molly </a> </li>
+        <li> <a href = "dora.html"> dora </a> </li>
+        </ul>
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> MI PAGINA ></title>
+    <meta charset="utf-8" />
+    <meta name="author" content="formulario">
+    </head>
+
+    <body>
+        <h1 align="center"> ONG - AYUDA A UN PERRITO </h1> 
+        <P align="center"><b> texto en negrita </b></P>>
+        <br>
+        <p align="center"> texto texto texto </p>
+        <br>
+        <h2 align="center"> nuestros integrantes:  </h2>
+
+        <center> <ol></center>
+            <center><li>  encargadi 1 </a> </li> 
+            <center><li>  encargadi 2  </a> </li>
+            <center><li>  encargadi 3 </a> </li>
+            <center><li>  encargadi 4  </a> </li>
+        </ol>
+
+        <h2 align="center"> nuestros secciones de ayuda:  </h2>
+
+
+        <div align="center">
+            <button><a href="gato.html">Gatos</a></button>
+            <button><a href="perro.html">Perros</a></button>
+        </div>
+
+    </body>   
+
+</html>
+
+
+
+
+
+
+
+<style> 
+    body {
+        background-color: rgb(165, 221, 97)
+    }
+</style>

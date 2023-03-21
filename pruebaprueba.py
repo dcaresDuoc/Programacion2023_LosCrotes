@@ -1,1 +1,1 @@
-print("print")
+print("this is a waste of keys"*543543543433254354354)

@@ -2,6 +2,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -25,10 +26,23 @@ const Login = () => {
     try {
       const res = await axios.post('/api/login', user)
       window.localStorage.setItem('user', JSON.stringify(user))
+      Swal.fire({
+        title: `Bienvenido ${user.username}`,
+        icon: 'success',
+        timer: 1000
+      })
       router.push('/')
+      
+      
     } catch (err) {
       // setError(err.response.data.error)
       console.error(err)
+      Swal.fire({
+        icon: 'error',
+        title: err.response.data.message,
+        timer: 2000,
+        showConfirmButton: false
+      })
     }
   }
 

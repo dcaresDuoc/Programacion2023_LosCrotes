@@ -1,4 +1,6 @@
+'use client'
 import { useState } from 'react'
+
 
 const Register = () => {
   const [step, setStep] = useState(1)
@@ -46,11 +48,11 @@ const Register = () => {
         {step === 1 && (
           <form onSubmit={handleFormSubmit}>
             <h1>Informacion personal:</h1>
-              <input type="text" name="name"  placeholder="Ingresa tu nombre" onChange={handleChange}/>
+              <input type="text" name="name"  placeholder="Ingresa tu nombre" onChange={handleChange} required/>
+              
+              <input type="text" name="lastname"  placeholder='Ingresa tu apellido' onChange={handleChange} required/>
 
-
-              <input type="text" name="lastname"  placeholder='Ingresa tu apellido' onChange={handleChange}/>
-
+              {/* <input type="text" name='profesion' placeholder='Ingresa el nombre de tu profesion' oncChange={handleChange}/> */}
             <button type="submit">Next</button>
           </form>
           
@@ -59,9 +61,9 @@ const Register = () => {
           <form onSubmit={handleFormSubmit}>
             <h1>Information Digital:</h1>
 
-              <input type="email" name="email"  placeholder="Ingresa tu email" onChange={handleChange}/>
+              <input type="email" name="email"  placeholder="Ingresa tu email" onChange={handleChange} required/>
 
-              <input type="password" name="password" placeholder="Ingresa una contraseña" onChange={handleChange}/>
+              <input type="password" name="password" placeholder="Ingresa una contraseña" onChange={handleChange} required/>
             
             <button type="submit">Next</button>
             <button onClick={handleFormBack}>Atras</button>
@@ -84,8 +86,10 @@ const Register = () => {
             <p>Por favor, revise que la siguiente información sea correcta:</p>
             <p>Nombre: {formData.name}</p>
             <p>Email: {formData.email}</p>
-            <p>Mensaje: {formData.message}</p>
+            <p>Número celular: {formData.phoneNumber}</p>
+
             <button type="submit">Enviar</button>
+            <button onClick={handleFormBack}>Atras</button>
           </form>
         )}
 

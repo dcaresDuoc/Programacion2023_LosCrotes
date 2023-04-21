@@ -11,20 +11,20 @@ const index = ({data}) => {
       <Hero />
       <About />
       <InfoBrand />
-      {/* <Footer data={data}/> */}
+      <Footer data={data}/>
     </div>
   )
 }
 
 export default index
 
-// export const getServerSideProps = async () => {
-//   const res = await axios.get('http://localhost:3000/api/users')
-//   const data = await res.data
+export const getServerSideProps = async () => {
+  const res = await axios.get('http://localhost:3000/api/users')
+  const data = await res.data
   
-//   return {
-//     props: {
-//       data
-//     }
-//   }
-// } 
+  return {
+    props: {
+      data
+    }
+  }
+} 

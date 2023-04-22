@@ -1,8 +1,10 @@
-'use client'
 import { useState } from 'react'
-
+import axios from 'axios'
+import Swal from 'sweetalert2'
+import { useRouter } from 'next/router'
 
 const Register = () => {
+  const router = useRouter()
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({
     name: '',
@@ -25,8 +27,23 @@ const Register = () => {
     setStep(step - 1)
   }
 
-  const handleRegisterSubmit = (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault()
+
+    try {
+      await axios.post('/api/register', formData)
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro completado exitosamente'
+      })
+      router.push('/login')
+    } catch (err) {
+      console.error(err.response.data.message)
+      Swal.fire({
+        icon: 'error',
+        title: err.response.data.message
+      })
+    }
 
     console.log(formData)
   }
@@ -49,10 +66,10 @@ const Register = () => {
           <form onSubmit={handleFormSubmit}>
             <h1>Informacion personal:</h1>
               <input type="text" name="name"  placeholder="Ingresa tu nombre" onChange={handleChange} required/>
-              
+
+
               <input type="text" name="lastname"  placeholder='Ingresa tu apellido' onChange={handleChange} required/>
 
-              {/* <input type="text" name='profesion' placeholder='Ingresa el nombre de tu profesion' oncChange={handleChange}/> */}
             <button type="submit">Next</button>
           </form>
           
@@ -61,9 +78,9 @@ const Register = () => {
           <form onSubmit={handleFormSubmit}>
             <h1>Information Digital:</h1>
 
-              <input type="email" name="email"  placeholder="Ingresa tu email" onChange={handleChange} required/>
+              <input type="email" name="email"  placeholder="Ingresa tu email" onChange={handleChange}/>
 
-              <input type="password" name="password" placeholder="Ingresa una contraseña" onChange={handleChange} required/>
+              <input type="password" name="password" placeholder="Ingresa una contraseña" onChange={handleChange}/>
             
             <button type="submit">Next</button>
             <button onClick={handleFormBack}>Atras</button>
@@ -86,14 +103,11 @@ const Register = () => {
             <p>Por favor, revise que la siguiente información sea correcta:</p>
             <p>Nombre: {formData.name}</p>
             <p>Email: {formData.email}</p>
-            <p>Número celular: {formData.phoneNumber}</p>
-
+            <p>Mensaje: {formData.message}</p>
             <button type="submit">Enviar</button>
-            <button onClick={handleFormBack}>Atras</button>
+            <button onClick={() => setStep(1)}>Atras</button>
           </form>
         )}
-
-        
       </div>
     </div>
   )

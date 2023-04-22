@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 
 const Login = () => {
   const [user, setUser] = useState({
-    username: '',
+    email: '',
     password: ''
   })
 
@@ -24,24 +24,25 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const res = await axios.post('/api/login', user)
+      await axios.post('/api/login', user)
       window.localStorage.setItem('user', JSON.stringify(user))
       Swal.fire({
-        title: `Bienvenido ${user.username}`,
         icon: 'success',
-        timer: 1000
+        title: 'Bienvenido Persona',
+        timer: 1500,
+        showConfirmButton: false
+      }).then((response) => {
+        if(response){
+          router.push('/')
+        }
       })
-      router.push('/')
-      
       
     } catch (err) {
       // setError(err.response.data.error)
       console.error(err)
       Swal.fire({
         icon: 'error',
-        title: err.response.data.message,
-        timer: 2000,
-        showConfirmButton: false
+        title: err.response.data.message
       })
     }
   }
@@ -52,7 +53,7 @@ const Login = () => {
       <div className='auth'>
         <h1>Ingresar</h1>
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder='Ingresa usuario' name='username' onChange={handleChange}/>
+          <input type="text" placeholder='Ingresa usuario' name='email' onChange={handleChange}/>
           <input type="password" placeholder='Password' name='password' onChange={handleChange}/>
           <button>Ingresar</button>
           {err && <p>{err}</p>}

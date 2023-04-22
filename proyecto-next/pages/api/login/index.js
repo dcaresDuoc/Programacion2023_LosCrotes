@@ -7,10 +7,10 @@ export default async function handler (req, res) {
     return
   }
 
-  const { username, password } = req.body
-  console.log(username, password)
+  const { email, password } = req.body
+  console.log(email, password)
 
-  const [row] = await pool.query("SELECT * FROM users WHERE username = ?", [username])
+  const [row] = await pool.query("SELECT * FROM users WHERE email = ?", [email])
   
   if (row.length === 0) res.status(401).json({ message: "El usuario no existe"})
   

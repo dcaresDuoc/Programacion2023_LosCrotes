@@ -16,7 +16,7 @@ const Hero = () => {
           <Image src={Photo} alt={Photo} width={500} height={350}/>
         </div>
       </div>
-      <InfoNav />
+      {/* <InfoNav /> */}
     </div>
   )
 }

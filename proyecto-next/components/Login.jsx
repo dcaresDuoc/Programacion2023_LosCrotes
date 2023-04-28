@@ -25,7 +25,6 @@ const Login = () => {
 
     try {
       await axios.post('/api/login', user)
-      window.localStorage.setItem('user', JSON.stringify(user))
       Swal.fire({
         icon: 'success',
         title: 'Bienvenido Persona',

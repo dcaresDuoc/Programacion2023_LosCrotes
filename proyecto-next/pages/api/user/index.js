@@ -2,6 +2,7 @@ import { verify } from 'jsonwebtoken'
 
 export default function userHandler (req, res) {
     const { token } = req.cookies
+    console.log(token)
 
     try {
       const user = verify(token, 'secret')

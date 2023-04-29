@@ -63,7 +63,7 @@ const Navbar = () => {
               </ul>
           </li>
           <li className="item">
-            <Link href="/acerca-de">
+            <Link href="/about">
               Acerca de
             </Link>
           </li>

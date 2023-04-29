@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 function ContactForm() {
   const [name, setName] = useState('');
@@ -12,19 +13,29 @@ function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
-      <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+<form onSubmit={handleSubmit} className="contact-form">
+  <div className="form-group">
+    <label htmlFor="name">Name:</label>
+    <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} className="form-control" />
+  </div>
 
-      <label htmlFor="email">Email:</label>
-      <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+  <div className="form-group">
+    <label htmlFor="email">Email:</label>
+    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" />
+  </div>
 
-      <label htmlFor="message">Message:</label>
-      <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} />
+  <div className="form-group">
+    <label htmlFor="message">Message:</label>
+    <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} className="form-control" />
+  </div>
 
-      <button type="submit">Send</button>
-    </form>
+  <button type="submit" className="btn">Send</button>
+  <button className='btn-text'>
+            <Link href='/'>Vuelve al Home</Link>
+          </button>
+</form>
   );
+  
 }
 
 export default ContactForm;

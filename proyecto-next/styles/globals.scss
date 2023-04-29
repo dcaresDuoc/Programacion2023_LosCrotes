@@ -914,7 +914,15 @@ body {
 
   // END PROFESIONALS BRAND
 
+  // CONTACT FORM
 
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  // END CONTACT FORM
 
   
 }

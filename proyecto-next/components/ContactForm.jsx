@@ -24,7 +24,7 @@ function ContactForm() {
           </div>
         </div>
       </div>
-    </div><div className='form-container' style={{display: 'flex',alignItems: 'center'}}>
+    </div><div className='form-container' style={{display: 'flex', alignItems: 'center'}}>
         <form onSubmit={handleSubmit} className="contact-form">
           <div className="form-group">
             <label htmlFor="name">Name:</label>

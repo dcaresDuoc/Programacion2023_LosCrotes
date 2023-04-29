@@ -19,7 +19,7 @@ const About = () => {
           <Image className='tablet-img' src={TablePhoto} alt={TablePhoto} width={500} height={320} style={{marginLeft: '10px'}}/>
           </div>
         </div>
-        <div className='right-info' style={{ textAlign: 'right', margin: '90px' }}>
+        <div className='right-info' style={{ textAlign: 'right', margin: '30px' }}>
         <h1>Nuestros profesionales</h1>
         </div>
         <div className='container-info' style={{ textAlign: 'right', margin: '20px' }}>

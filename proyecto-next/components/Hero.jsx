@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Photo from '../public/man.png'
 import { InfoNav } from './index' 
+
 const Hero = () => {
   return (
     <div className='section'>
@@ -18,6 +19,7 @@ const Hero = () => {
       </div>
       {/* <InfoNav /> */}
     </div>
+
   )
 }
 

@@ -68,7 +68,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="item">
-            <Link href="/contacto">
+            <Link href="/contactform">
               Contacto
             </Link>
           </li>

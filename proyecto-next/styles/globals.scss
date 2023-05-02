@@ -189,6 +189,9 @@ body {
   
 }
 
+
+// SECTION REGISTER
+
 .container-register {
   display: flex;
   flex-direction: column;
@@ -340,13 +343,65 @@ body {
   }
 
   
-  
+}
+
+
+// CONTACT SECTION
+
+.section-contact {
+  display: flex;
+  height: 100vh;
+
+  .container-contact {
+    display: flex;
+    gap: 50px;
+
+    .contact-text {
+      position: relative;
+      top: 70px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 120px 0 50px;
+    }
+
+    .form-contact{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      top: 70px;
+      right: 20px;
+      background-color: white;
+      border-radius: 25px;;
+      
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        border: 1px solid black;
+
+        label {
+          font-size: 20px;
+        }
+
+        input {
+          width: 100%;
+          border-bottom: 1px solid #9304bf;
+          border: none;
+        }
+
+      }
+    }
+
+
+  }
 }
 
 
 
 
-// END AUTH SECTION
 
 .app {
   height: 100vh;

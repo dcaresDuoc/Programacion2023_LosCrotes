@@ -1,4 +1,4 @@
-import About from '@/components/index/AboutSection'
+import { About } from '@/components/index'
 import React from 'react'
 
 const about = () => {

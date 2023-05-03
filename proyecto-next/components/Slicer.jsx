@@ -33,12 +33,24 @@ export default function Slicer () {
     <>
       <Swiper
       pagination={{ clickable: true}}
+      slidesPerView={1}
+      spaceBetween={10}
+      breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1070: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+        }}
       navigation={true}
-      spaceBetween={30}
-      slidesPerView={3}
       modules={[Pagination, Navigation]}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
     >
       {users.map((user) => (
         <div>

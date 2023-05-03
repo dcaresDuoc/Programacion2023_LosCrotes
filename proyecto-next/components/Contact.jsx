@@ -4,6 +4,7 @@ import Logo from '../public/FindSome.png'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 function Contact() {  
   const [formData, setFormData] = useState({
@@ -45,6 +46,12 @@ function Contact() {
   return (
     <div className='container-contact'>
 
+      <div className="logo-brand">
+        <Link href='/'>
+          <Image src={Logo} alt='logo de la empresa' width={100} height={60}/>
+        </Link>
+      </div>  
+
       <div className='contact-text'>
         
         <div>
@@ -74,31 +81,21 @@ function Contact() {
             te comunicarás con nuestro personal y todas tus dudas serán resultas
         </h5>
         <form  onSubmit={handleSubmit}>
-          <label>
-            Nombre:
-            <input type='text' name='name' onChange={handleChange}/>
+            <input type='text' name='name' placeholder='Ingresa tu nombre' onChange={handleChange}/>
             {/* {errors.nombre && <span>Este campo es obligatorio</span>} */}
-          </label>
 
-          <label>
-            Correo electrónico:
-            <input
-              type="email"
-              name="email"
-              onChange={handleChange}
+            <input type="email" name="email" placeholder='Ingresa tu correo' onChange={handleChange}
             />
             {/* {errors.email && <span>Este campo es obligatorio</span>} */}
-          </label>
 
-          <label>
-            Mensaje:
-            <textarea name="message" onChange={handleChange} />
+            <textarea name="message" placeholder='Ingresa el mensaje que deseas enviar' onChange={handleChange} />
             {/* {errors.mensaje && <span>Este campo es obligatorio</span>} */}
-          </label>
+
 
           <button type="submit">Enviar</button>
         </form>
       </div>
+
 
     </div>
 

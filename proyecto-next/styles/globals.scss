@@ -356,42 +356,109 @@ body {
     display: flex;
     gap: 50px;
 
+
+    .logo-brand {
+      position: absolute;
+      top: 25px;
+      left: 50px;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    
+
     .contact-text {
       position: relative;
-      top: 70px;
-      height: auto;
       display: flex;
       flex-direction: column;
-      padding: 20px 120px 0 50px;
+      padding: 20px 100px 0 60px;
+      gap: 25px;
+      top: 110px;
+      height: 650px;
+
+      div {
+        
+        h1 {
+          margin: 0;
+          font-size: 30px;
+        }
+        h5 {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 300;
+          color:rgba(74, 74, 74, 0.755)
+        }
+      }
     }
 
     .form-contact{
+      background-color: #9d43b980;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
-      top: 70px;
+      gap: 10px;
+      border-radius: 25px;
+      height: 855px;
+      padding: 40px 100px;
+      top: 20px;
       right: 20px;
-      background-color: white;
-      border-radius: 25px;;
+
+      h1 {
+        font-size: 37px;
+        margin-top: 20px;
+      }
+
+      h5 {
+        width: 500px;
+      }
       
       form {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
         align-items: center;
-        border: 1px solid black;
-
-        label {
-          font-size: 20px;
-        }
+        width: 100%;
+        height: 55%;
+        margin-top: 40px;
 
         input {
-          width: 100%;
-          border-bottom: 1px solid #9304bf;
+          background-color: transparent;
+          margin-top: 20px;
           border: none;
+          border-bottom: 2px solid #340b41;
+          outline: none;
+          width: 100%;
+          
+          &::placeholder {
+            color: white;
+          }
+
         }
 
+        textarea {
+          background-color: transparent;
+          margin-top: 20px;
+          border: none;
+          border-bottom: 2px solid #340b41;
+          outline: none;
+          width: 100%;
+
+          &::placeholder {
+            color: white;
+          }
+        }
+
+        button {
+          margin-top: 50px;
+          width: 80%;
+          height: 12%;
+          background-color: #340b41;
+          color: white;
+          border-radius: 8px;
+        }
       }
     }
 
@@ -1073,7 +1140,7 @@ body {
       .container-info{
         width: auto;
         align-items: center;
-        padding: 0 40px 0 40px;
+        padding: 0 50px 0 50px;
   
         .left-info {
           width: auto;
@@ -1218,17 +1285,18 @@ body {
 
     .container-workers {
       display: flex;
-      background-color: rgb(255, 255, 255);
+      background-color: rgba(255, 255, 255, 0.305);
       padding: 50px 10px 50px 10px;
-      width: 900px;
+      width: 1200px;
       border-radius: 10px;
+      box-shadow: 3px 3px 2px 2px #9c9c9cb9;
 
       .text-work {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border-right: 1px solid gray;
+        border-right: 2px solid #340b41;
         padding: 5px 15px;
 
         h1 {
@@ -1249,14 +1317,18 @@ body {
 
         .card {
           box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.163);
-          width: auto;
-          height: 400px;
+          width: 300px;
+          height: 450px;
           border-radius: 10px;
           background-color: white;
 
           .card-img {
-            width: 200px;
+            width: auto;
             height: auto;
+
+            img {
+              width: 100%;
+            }
           }
 
           .card-info {
@@ -1280,22 +1352,27 @@ body {
           }
         }
       }
-      .swiper-button-next:after{
-        color:hsl(286, 47%, 49%);
-      }
-      .swiper-button-prev:after{
-        color:hsl(286, 47%, 49%);
-      }
+        .swiper-button-next:after{
+          color:hsl(286, 47%, 49%);
+        }
+        .swiper-button-prev:after{
+          color:hsl(286, 47%, 49%);
+        }
 
-      .swiper-pagination-bullet-active {
+        .swiper-pagination-bullet-active {
         background-color:hsl(286, 47%, 49%);
+        }
       }
     }
-    
+
+
+  @media (max-width: 1070px){
+
+    .container-workers {
+      width: auto;
     }
 
-
-    
+  }
   }
   
   

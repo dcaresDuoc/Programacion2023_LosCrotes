@@ -95,43 +95,7 @@ function Contact() {
           <button type="submit">Enviar</button>
         </form>
       </div>
-
-
     </div>
-
-
-    // <div className='section-about'>
-    //   <div className='container-info'>
-    //     <div className='left-info'>
-    //     <div style={{ display: 'flex', alignItems: 'center' }}>
-    //       <Image src={Logo} alt='logo de la empresa' width={140} height={100} />
-    //       <h2 style={{ color: 'purple' }}>Formulario de Contacto</h2>
-    //     </div>
-    //   </div>
-    // </div>
-    // </div><div className='form-container' style={{display: 'flex', alignItems: 'center'}}>
-    //   <form onSubmit={handleSubmit} className="contact-form">
-    //     <div className="form-group">
-    //       <label htmlFor="name">Name:</label>
-    //       <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} className="form-control" />
-    //     </div>
-
-    //     <div className="form-group">
-    //       <label htmlFor="email">Email:</label>
-    //       <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" />
-    //     </div>
-
-    //     <div className="form-group">
-    //       <label htmlFor="message">Message:</label>
-    //       <textarea id="message" value={message} onChange={(e) => setMessage(e.target.value)} className="form-control" />
-    //     </div>
-
-    //     <button type="submit" className="btn">Send</button>
-    //     <button className='btn-text'>
-    //       <Link href='/'>Vuelve al Home</Link>
-    //     </button>
-    //   </form>
-    // </div>
   );
   
 }

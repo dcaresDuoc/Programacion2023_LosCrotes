@@ -33,16 +33,22 @@ export default function Slicer () {
     <>
       <Swiper
       pagination={{ clickable: true}}
-      slidesPerView={1}
-      spaceBetween={10}
       breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
+          300: {
+            slidesPerView: 1,
+            spaceBetween: 40,
           },
-          768: {
+          670: {
+            slidesPerView: 1,
+            spaceBetween: 40,
+          },
+          800: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 40,
+          },
+          950: {
+            slidesPerView: 3,
+            spaceBetween: 40,
           },
           1070: {
             slidesPerView: 3,

@@ -354,8 +354,7 @@ body {
 
   .container-contact {
     display: flex;
-    gap: 50px;
-
+    gap: 40px;
 
     .logo-brand {
       position: absolute;
@@ -363,17 +362,16 @@ body {
       left: 50px;
 
       img {
-        height: 100%;
-        width: 100%;
+        height: 80%;
+        width: 80%;
       }
     }
     
-
     .contact-text {
       position: relative;
       display: flex;
       flex-direction: column;
-      padding: 20px 100px 0 60px;
+      padding: 20px 70px 0 60px;
       gap: 25px;
       top: 110px;
       height: 650px;
@@ -382,11 +380,11 @@ body {
         
         h1 {
           margin: 0;
-          font-size: 30px;
+          font-size: 23px;
         }
         h5 {
           margin: 0;
-          font-size: 18px;
+          font-size: 16px;
           font-weight: 300;
           color:rgba(74, 74, 74, 0.755)
         }
@@ -394,20 +392,20 @@ body {
     }
 
     .form-contact{
-      background-color: #9d43b980;
+      background-color: #fcfcfcca;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
       gap: 10px;
       border-radius: 25px;
-      height: 855px;
+      height: 720px;
       padding: 40px 100px;
       top: 20px;
-      right: 20px;
-
+      margin-left: 60px;
+      
       h1 {
-        font-size: 37px;
+        font-size: 32px;
         margin-top: 20px;
       }
 
@@ -421,7 +419,6 @@ body {
         gap: 30px;
         align-items: center;
         width: 100%;
-        height: 55%;
         margin-top: 40px;
 
         input {
@@ -433,7 +430,7 @@ body {
           width: 100%;
           
           &::placeholder {
-            color: white;
+            color: #340b41;
           }
 
         }
@@ -447,22 +444,97 @@ body {
           width: 100%;
 
           &::placeholder {
-            color: white;
+            color: #340b41;
           }
         }
 
         button {
           margin-top: 50px;
-          width: 80%;
-          height: 12%;
+          border: none;
+          padding: 10px 225px;
           background-color: #340b41;
           color: white;
           border-radius: 8px;
         }
       }
     }
+  }
+
+  @media (max-width: 425px){
+    .container-contact {
+      margin: 0;
+
+      img {
+        display: none;
+      }
+
+      .contact-text {
+        display: none;
+      }
+
+      .form-contact {
+        width: auto;
+        margin: 0;
+        padding: 10px 20px;
+        position: static;
+        height: auto;
+
+        h1 {
+          font-size: 10px;
+        }
+
+        h5 {
+          font-size: 10px;
+        }
+
+        form {
+
+          width: auto;
+
+          button {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
 
 
+  @media (min-width: 851px) and (max-width: 950px) {
+    .container-contact {
+      gap: 20px;
+
+      .contact-text {
+        padding: 20px 0 0 60px;
+
+        div {
+
+          h1{
+            font-size: 20px;
+          }
+        }
+      }
+
+      .form-contact {
+        margin-left: 10px;
+        padding: 40px 80px;
+      }
+    }
+  }
+
+  @media (min-width: 951px) and (max-width: 1050px){
+    .container-contact {
+      gap: 10px;
+
+
+      .contact-text {
+        padding: 20px 10px 0 60px;
+      }
+
+      .form-contact {
+        margin-left: 40px;
+      }
+    }
   }
 }
 
@@ -1364,12 +1436,174 @@ body {
         }
       }
     }
+  @media (min-width: 320px) and (max-width: 374px){
+    .container-workers {
+      flex-direction: column;
+      width: 300px;
 
+      .text-work {
+        border: none;
+        border-bottom: 2px solid #23022d;
 
-  @media (max-width: 1070px){
+        h1 {
+          text-align: center;
+          font-size: 30px;
+        }
+
+        span {
+          text-align: center;
+        }
+      }
+
+      .swiper {
+        margin: 5px 5px;
+        padding: 20px 10px;
+        .swiper-wrapper {
+          .card {
+            width: 240px;
+            margin: 0 0 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 375px) and (max-width: 424px){
+    .container-workers {
+      flex-direction: column;
+      width: 350px;
+
+      .text-work {
+        border: none;
+        border-bottom: 2px solid #23022d;
+      }
+
+      .swiper {
+        margin: 10px 10px;
+        .swiper-wrapper {
+          .card {
+            width: 280px;
+            margin: 0 0 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 425px) and (max-width: 500px) {
+    .container-workers {
+      flex-direction: column;
+      width: 400px;
+
+      .text-work {
+        border: none;
+        border-bottom: 2px solid #23022d;
+      }
+
+      .swiper {
+        margin: 10px 10px;
+        .swiper-wrapper {
+          .card {
+            width: 300px;
+            margin: 0 0 0 10px;
+          }
+        }
+      }
+    }
+
+  }
+  @media (min-width: 501px) and (max-width: 600px) {
+    .container-workers {
+      flex-direction: column;
+      width: 500px;
+
+      .text-work {
+        border: none;
+        border-bottom: 2px solid #23022d;
+      }
+
+      .swiper {
+        margin: 10px 10px;
+        .swiper-wrapper {
+          .card {
+            width: 320px;
+            margin: 0 0 0 50px;
+          }
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 601px) and (max-width: 768px){
+    .container-workers {
+      width: 600px;
+
+      .swiper {
+        .swiper-wrapper {
+          margin-left: 40px;
+          .card {
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 950px){
+    .container-workers {
+      width: 760px;
+
+      .swiper {
+        .swiper-wrapper {
+          .card {
+            width: 250px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 950px) and (max-width: 1100px){
+    .container-workers {
+      width: 950px;
+
+      .swiper {
+        .swiper-wrapper {
+          .card {
+            width: 230px;
+          }
+        }
+      }
+    }
+
+    
+  }
+  
+  @media (min-width: 1101px) and (max-width: 1200px){
+    .container-workers {
+      width: 1050px;
+      
+      .swiper {
+        .swiper-wrapper {
+          .card {
+            width: 260px;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 1201px) and (max-width: 1440px){
 
     .container-workers {
-      width: auto;
+      width: 1200px;
+    }
+
+    .swiper {
+      .swiper-wrapper {
+        .card {
+          width: 260px;
+        }
+      }
     }
 
   }

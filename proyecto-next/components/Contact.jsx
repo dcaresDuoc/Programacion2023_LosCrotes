@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image'
 import Logo from '../public/FindSome.png'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { SlBubbles, SlLocationPin, SlPhone} from 'react-icons/sl'
 
 function Contact() {  
   const [formData, setFormData] = useState({
@@ -55,18 +56,21 @@ function Contact() {
       <div className='contact-text'>
         
         <div>
+          <SlBubbles className='icon'/>
           <h1>Chatea con nosotros</h1>
           <h5>Uno de nuestro equipo estará para ayudarte</h5>
           <span>hi@findsome.cl</span>
         </div>
 
         <div>
+          <SlLocationPin className='icon'/>
           <h1>Visitanos</h1>
           <h5>Ven a saludarnos en nuestra sede</h5>
           <span>Antonio Varas 666, Providencia, Región Metropolitana2</span>
         </div>
 
         <div>
+          <SlPhone className='icon'/>
           <h1>Llamanos</h1>
           <h5>Atenderemos de Lun-Vier de 8am a 4pm</h5>
           <span>+569 221234812</span>
@@ -81,14 +85,13 @@ function Contact() {
             te comunicarás con nuestro personal y todas tus dudas serán resultas
         </h5>
         <form  onSubmit={handleSubmit}>
-            <input type='text' name='name' placeholder='Ingresa tu nombre' onChange={handleChange}/>
+            <input type='text' name='name' placeholder='Ingresa tu nombre' onChange={handleChange} required/>
             {/* {errors.nombre && <span>Este campo es obligatorio</span>} */}
 
-            <input type="email" name="email" placeholder='Ingresa tu correo' onChange={handleChange}
-            />
+            <input type="email" name="email" placeholder='Ingresa tu correo' onChange={handleChange} required/>
             {/* {errors.email && <span>Este campo es obligatorio</span>} */}
 
-            <textarea name="message" placeholder='Ingresa el mensaje que deseas enviar' onChange={handleChange} />
+            <textarea name="message" placeholder='Ingresa el mensaje que deseas enviar' onChange={handleChange} required/>
             {/* {errors.mensaje && <span>Este campo es obligatorio</span>} */}
 
 

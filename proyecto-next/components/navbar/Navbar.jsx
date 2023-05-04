@@ -3,18 +3,33 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../../public/FindSome.png'
 import { SlMenu } from 'react-icons/sl'
-import { useState } from 'react' 
+import { useState, useEffect } from 'react' 
 import { IoIosArrowDown } from 'react-icons/io'
 
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 100);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos, visible]);
 
   console.log(openMenu)
+  console.log(visible)
 
 
   return (
-    <div className={`${openMenu ? 'active' : ''} nav-section`}>
+    <div className={`${openMenu ? 'active' : ''} nav-section ${visible ? 'nav-section' : 'hidden'}`}>
       <div className="nav-container">
 
         <div className="logo-brand">

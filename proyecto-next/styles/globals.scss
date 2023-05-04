@@ -85,7 +85,6 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
   ::-webkit-scrollbar {
     background-color: transparent;
     width: 5px;
@@ -351,194 +350,276 @@ body {
 .section-contact {
   display: flex;
   height: 100vh;
+  background-color: white;
+
+  .logo-brand {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+
+    img {
+      width: 70%;
+      height: 100%;
+    }
+  }
 
   .container-contact {
     display: flex;
-    gap: 40px;
 
-    .logo-brand {
-      position: absolute;
-      top: 25px;
-      left: 50px;
-
-      img {
-        height: 80%;
-        width: 80%;
-      }
-    }
-    
     .contact-text {
-      position: relative;
+      margin: 100px 30px 15px 20px;
+      border-radius: 20px;
+      padding: 0 20px 0 0;
       display: flex;
       flex-direction: column;
-      padding: 20px 70px 0 60px;
-      gap: 25px;
-      top: 110px;
-      height: 650px;
+      gap: 15px;
 
       div {
         
         h1 {
+          font-size: 25px;
           margin: 0;
-          font-size: 23px;
         }
-        h5 {
+
+        h5, span {
+          font-size: 15px;
           margin: 0;
-          font-size: 16px;
-          font-weight: 300;
-          color:rgba(74, 74, 74, 0.755)
         }
       }
     }
 
-    .form-contact{
-      background-color: #fcfcfcca;
-      display: flex;
+    .form-contact {
+      background-color: #d3afde;
+      margin: 15px 10px;
+      border-radius: 20px;
+      display:flex;
       flex-direction: column;
-      align-items: center;
-      position: relative;
-      gap: 10px;
-      border-radius: 25px;
-      height: 720px;
-      padding: 40px 100px;
-      top: 20px;
-      margin-left: 60px;
-      
+
       h1 {
-        font-size: 32px;
-        margin-top: 20px;
+        margin: 0;
+        text-align: center;
+        font-size: 30px;
+        padding: 10px 80px;
       }
 
       h5 {
-        width: 500px;
+        margin: 0;
+        text-align: center;
+        font-size: 17px;
+        padding: 10px 80px;
       }
-      
+
+
       form {
         display: flex;
         flex-direction: column;
-        gap: 30px;
         align-items: center;
-        width: 100%;
-        margin-top: 40px;
+        gap: 50px;
+        padding: 10px 80px;
 
-        input {
-          background-color: transparent;
-          margin-top: 20px;
-          border: none;
-          border-bottom: 2px solid #340b41;
-          outline: none;
+        input, textarea {
           width: 100%;
-          
-          &::placeholder {
-            color: #340b41;
-          }
-
+          border: none;
+          background-color: transparent;
+          border-bottom: 2px solid #23022d;
         }
 
         textarea {
-          background-color: transparent;
-          margin-top: 20px;
-          border: none;
-          border-bottom: 2px solid #340b41;
-          outline: none;
-          width: 100%;
-
-          &::placeholder {
-            color: #340b41;
-          }
+          resize: none;
+          max-height: 300px;
+          overflow-y: auto;
         }
 
         button {
-          margin-top: 50px;
+          width: 100%;
+          padding: 10px 0;
+          border-radius: 10px;
           border: none;
-          padding: 10px 225px;
           background-color: #340b41;
           color: white;
-          border-radius: 8px;
         }
       }
     }
   }
 
-  @media (max-width: 425px){
-    .container-contact {
-      margin: 0;
+  @media (min-width: 280px){
 
-      img {
-        display: none;
-      }
+    .container-contact{
 
       .contact-text {
         display: none;
       }
 
       .form-contact {
-        width: auto;
         margin: 0;
-        padding: 10px 20px;
-        position: static;
-        height: auto;
+        padding-top: 40px;
+        border-radius: 0;
 
         h1 {
-          font-size: 10px;
+          font-size: x-large;
+          padding: 20px;
         }
-
         h5 {
-          font-size: 10px;
+          text-align: start;
+          font-size: medium;
+          padding: 20px 20px 10px;
         }
 
         form {
-
-          width: auto;
-
-          button {
-            width: auto;
-          }
+          padding: 20px;
         }
       }
     }
   }
-
-
-  @media (min-width: 851px) and (max-width: 950px) {
-    .container-contact {
-      gap: 20px;
+  @media (min-width: 480px){
+    .container-contact{
 
       .contact-text {
-        padding: 20px 0 0 60px;
+        display: inline-flex;
+        padding: 0;
+        margin: 70px 5px 20px 20px;
 
         div {
-
           h1{
             font-size: 20px;
           }
+          h5 {
+            font-size: 15px;
+            
+          }
+          span {
+            font-size: 12px;
+          }
         }
       }
 
       .form-contact {
-        margin-left: 10px;
-        padding: 40px 80px;
+        margin: 10px;
+        padding: 0;
+        border-radius: 20px;
+
+        h1 {
+          font-size: x-large;
+          padding: 20px 40px;
+        }
+        h5 {
+          text-align: start;
+          font-size: medium;
+          padding: 20px 40px 15px;
+        }
+
+        form {
+          padding: 30px 40px;
+        }
       }
     }
   }
 
-  @media (min-width: 951px) and (max-width: 1050px){
-    .container-contact {
-      gap: 10px;
-
-
+  @media (min-width: 768px){
+    .container-contact{
+      gap: 20px;
       .contact-text {
-        padding: 20px 10px 0 60px;
+        display: inline-flex;
+        padding: 0;
+        margin: 70px 25px 20px 30px;
+
+        div {
+          h1{
+            font-size: 20px;
+          }
+          h5 {
+            font-size: 15px;
+            
+          }
+          span {
+            font-size: 12px;
+          }
+        }
       }
 
       .form-contact {
-        margin-left: 40px;
+        margin: 10px;
+        padding: 0;
+        border-radius: 20px;
+
+        h1 {
+          font-size: 25px;
+          padding: 30px 80px;
+        }
+        h5 {
+          text-align: start;
+          font-size: medium;
+          padding: 10px 80px 25px;
+        }
+
+        form {
+          padding: 40px 80px;
+        }
       }
     }
   }
+
+  @media (min-width: 1024px){
+    .container-contact{
+      gap: 0;
+
+      .contact-text {
+        display: inline-flex;
+        padding: 10px;
+        margin: 65px 10px 20px 45px;
+
+        div {
+          width: 300px;
+          position: relative;
+          padding-left: 10px;
+
+          .icon {
+            background-color: #00000010;
+            border: 1px solid rgba(0, 0, 0, 0.348);
+            position: absolute;
+            top: 5px;
+            left: -22px;
+            padding: 3px;
+            font-size: 26px;
+            border-radius: 5px;
+            color: black;
+          }
+          h1{
+            font-size: 23px;
+          }
+          h5 {
+            font-size: 16px;
+            
+          }
+          span {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .form-contact {
+        margin: 15px;
+        padding: 0;
+        border-radius: 20px;
+
+        h1 {
+          font-size: 30px;
+          padding: 50px 90px;
+        }
+        h5 {
+          text-align: start;
+          font-size: large;
+          padding: 10px 90px 25px;
+        }
+
+        form {
+          padding: 30px 90px;
+        }
+      }
+    }
+  }
+
 }
-
-
 
 
 
@@ -546,11 +627,27 @@ body {
   height: 100vh;
   scroll-behavior: smooth;
   scrollbar-color: black;
+  width: 100vw;
+  scroll-behavior: auto;
 
   // NAVBAR BEGIN
   .nav-section {
-    padding: 10px 20px;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: #e5c3ef;
+    padding: 5px 20px;
+    z-index: 10;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 4px 4px 4px 4px rgb(164, 164, 164, 0.5);
+
+
+    &.hidden {
+      transform: translateY(-80px);
+      transition: all 0.3s ease;
+      }
 
     .nav-container {
       display: flex;
@@ -564,9 +661,10 @@ body {
 
         .logo-brand {
           position: relative;
-          top: 8px;
+          top: 5px;
           img {
-            object-fit: cover;
+            width: 70%;
+            height: 100%;
           }
         }
 
@@ -805,8 +903,8 @@ body {
 
   // BEGIN OF HERO ELEMENT
   .section {
-    margin-top: 30px;
-    scroll-snap-align: center;
+    height: 100%;
+    margin-top: 90px;
     display: flex;
     flex-direction: column;
     align-items: center;

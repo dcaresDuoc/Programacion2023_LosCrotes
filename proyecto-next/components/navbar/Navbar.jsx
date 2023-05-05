@@ -83,6 +83,26 @@ const Navbar = () => {
                     Construcción
                   </Link>
                 </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Diseño
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Gastronomía
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Servicios de ingeniería
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Comunicaciones
+                  </Link>
+                </li>
               </ul>
           </li>
           <li className="item">

@@ -45,7 +45,7 @@ const Navbar = () => {
           
           <li className="item">
             <Link href="/professionals">
-              Profesionales
+              Buscar profesionales
             </Link>
           </li>
           <li className="item">

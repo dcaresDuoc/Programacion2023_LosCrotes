@@ -60,8 +60,8 @@ export default function Slicer () {
     >
       {users.map((user) => (
         <div>
-          <SwiperSlide>
-            <div className='card' key={user.idusers}>
+          <SwiperSlide key={user.idusers}>
+            <div className='card'>
               <div className='card-img'>
                 <Image src={Photo} alt='imagen de persona adulta' width={270} height={200}/>
               </div>

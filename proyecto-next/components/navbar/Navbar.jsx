@@ -5,12 +5,14 @@ import Logo from '../../public/FindSome.png'
 import { SlMenu } from 'react-icons/sl'
 import { useState, useEffect } from 'react' 
 import { IoIosArrowDown } from 'react-icons/io'
+import useUser from '../../hooks/useUser'
 
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const { user } = useUser()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,8 +26,9 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos, visible]);
 
-  console.log(openMenu)
-  console.log(visible)
+  // console.log(openMenu)
+  // console.log(visible)
+  console.log(user)
 
 
   return (

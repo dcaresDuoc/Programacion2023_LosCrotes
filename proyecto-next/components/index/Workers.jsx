@@ -1,7 +1,5 @@
 import React from 'react'
 import { Slicer } from '../index'
-import axios from 'axios'
-
 const Workers = () => {
   return (
     <div className='section-work'>

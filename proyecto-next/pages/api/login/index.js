@@ -2,35 +2,51 @@ import { pool } from '../../../config/db'
 import jwt from 'jsonwebtoken'
 import { serialize } from 'cookie'
 
-export default async function handler (req, res) {
+async function authenticate(email, password) {
+  const [row] = await pool.query("SELECT * FROM users WHERE email = ?", [email])
+  
+  if (row.length === 0) {
+    throw new Error("El usuario no existe")
+  }
+  
+  // Validar la contraseña utilizando una librería de hashing de contraseñas
+  if (password !== row[0]["password"]) {
+    throw new Error("Contraseña incorrecta")
+  }
 
-  if (req.method !== "POST"){
-    res.status(405).json({ message: "Metodo no permitido"})
+  return row
+}
+
+export default async function handler (req, res) {
+  if (req.method !== "POST") {
+    res.status(405).end()
     return
   }
 
-  const { email, password } = req.body
+  try {
+    const { email, password } = req.body
 
-  const [row] = await pool.query("SELECT * FROM users WHERE email = ?", [email])
-  
-  if (row.length === 0) res.status(401).json({ message: "El usuario no existe"})
-  
-  if (password !== row[0]["password"]) res.status(401).json({ message: "Contraseña incorrecta"})
+    console.log(req.body)
 
-  const token = jwt.sign({
-    data: row,
-    exp: Math.floor(Date.now() / 1000) + 60 * 60
-  }, 'secret')
+    const user = await authenticate(email, password)
+    console.log(user)
 
-  const serialized = serialize('Token', token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: 'strict',
-    maxAge: 1000 * 60 * 60,
-    path: '/' 
-  })
+    const token = jwt.sign({
+      data: user,
+      exp: Math.floor(Date.now() / 1000) + 60 * 60
+    }, 'secret')
 
-  res.setHeader('Set-Cookie', serialized)
+    const serialized = serialize('Token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: 'strict',
+      maxAge: 1000 * 60 * 60,
+      path: '/' 
+    })
 
-  return res.status(200).json(serialized)
+    res.setHeader('Set-Cookie', serialized)
+    res.status(200).end()
+  } catch (error) {
+    res.status(401).json({ message: error.message })
+  }
 }

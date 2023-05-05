@@ -44,6 +44,11 @@ const Navbar = () => {
         <ul className={`${openMenu ? 'active' : ''} links`}>
           
           <li className="item">
+            <Link href="/professionals">
+              Profesionales
+            </Link>
+          </li>
+          <li className="item">
             <Link href='/profesionales'>
               Productos
             </Link>
@@ -91,6 +96,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
+
 
         <div className={`${openMenu ? 'active' : ''} session-btn`}>
         

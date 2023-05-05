@@ -50,37 +50,37 @@ const Navbar = () => {
           </li>
           <li className="item">
             <Link href='/profesionales'>
-              Productos
+              Servicios
             </Link>
               <ul className='dropdown'>
                 <li>
                   <Link href="/productos/producto-1">
-                    Producto 1
+                    Servicios eléctricos
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-2">
-                    Producto 2
+                    Informática y Telecomunicaciones
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-3">
-                    Producto 3
+                    Servicios de Salud
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-1">
-                    Producto 1
+                    Servicios de mecánica
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-2">
-                    Producto 2
+                    Asesorías y Negocios
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-3">
-                    Producto 3
+                    Construcción
                   </Link>
                 </li>
               </ul>

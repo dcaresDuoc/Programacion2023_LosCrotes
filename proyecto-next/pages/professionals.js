@@ -3,7 +3,7 @@ import React from 'react'
 
 const professionals = () => {
   return (
-    <div className='section-professionals'>
+    <div className='section-pro'>
       <Professionals />
     </div>
   )

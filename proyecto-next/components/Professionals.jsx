@@ -33,55 +33,60 @@ function Professionals() {
 
   const filteredProfessionals = professionals.filter((professional) => {
     return (
-      (filters.area === "" || professional.area === filters.area) &&
+      (filters.area === "" || professional.area.toLowerCase().startsWith(filters.area.toLowerCase())) &&
       (filters.hourlyRate === "" || professional.hourlyRate <= filters.hourlyRate) &&
-      (filters.region === "" || professional.region === filters.region) &&
-      (filters.commune === "" || professional.commune === filters.commune) &&
-      (filters.country === "" || professional.country === filters.country)
+      (filters.region === "" || professional.region.toLowerCase().startsWith(filters.region.toLowerCase())) &&
+      (filters.commune === "" || professional.commune.toLowerCase().startsWith(filters.commune.toLowerCase())) &&
+      (filters.country === "" || professional.country.toLowerCase().startsWith(filters.country.toLowerCase()))
     );
   });
 
+  
+
   return (
-    <div>
+    <div className="container-pro">
       <h1>Search for Professionals</h1>
-      <form>
-        <label>
-          Area:
-          <input type="text" name="area" value={filters.area} onChange={handleFilterChange} />
-        </label>
-        <br />
-        <label>
-          Hourly Rate:
-          <input type="number" name="hourlyRate" value={filters.hourlyRate} onChange={handleFilterChange} />
-        </label>
-        <br />
-        <label>
-          Region:
-          <input type="text" name="region" value={filters.region} onChange={handleFilterChange} />
-        </label>
-        <br />
-        <label>
-          Commune:
-          <input type="text" name="commune" value={filters.commune} onChange={handleFilterChange} />
-        </label>
-        <br />
-        <label>
-          Country:
-          <input type="text" name="country" value={filters.country} onChange={handleFilterChange} />
-        </label>
-        <br />
-        <button type="button" onClick={handleResetFilters}>
-          Reset Filters
-        </button>
-      </form>
-      <ul>
-        {filteredProfessionals.map((professional) => (
-          <li key={professional.id}>
-            {professional.name}, {professional.area},
-            {professional.hourlyRate} USD/hour, {professional.commune}, {professional.region}, {professional.country}
-      </li>
-    ))}
-  </ul>
+      
+      <div className="low-section">
+        <form className="form-pro">
+          <label>
+            Area:
+            <input type="text" name="area" value={filters.area} onChange={handleFilterChange} />
+          </label>
+          <br />
+          <label>
+            Hourly Rate:
+            <input type="number" name="hourlyRate" value={filters.hourlyRate} onChange={handleFilterChange} />
+          </label>
+          <br />
+          <label>
+            Region:
+            <input type="text" name="region" value={filters.region} onChange={handleFilterChange} />
+          </label>
+          <br />
+          <label>
+            Commune:
+            <input type="text" name="commune" value={filters.commune} onChange={handleFilterChange} />
+          </label>
+          <br />
+          <label>
+            Country:
+            <input type="text" name="country" value={filters.country} onChange={handleFilterChange} />
+          </label>
+          <br />
+          <button type="button" onClick={handleResetFilters}>
+            Reset Filters
+          </button>
+        </form>
+        <ul>
+          {filteredProfessionals.map((professional) => (
+            <li key={professional.id}>
+              {professional.name}, {professional.area},
+              {professional.hourlyRate} USD/hour, {professional.commune}, {professional.region}, {professional.country}
+            </li>
+          ))}
+        </ul>
+      </div>
 </div>
 );
 }

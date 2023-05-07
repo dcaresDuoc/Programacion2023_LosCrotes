@@ -96,6 +96,8 @@ body {
 
 }
 
+ // testeo de estilos de professionals-page
+
 
 // AUTH SECTION
 
@@ -452,7 +454,7 @@ body {
 
       .form-contact {
         margin: 0;
-        padding-top: 40px;
+        padding-top: 60px;
         border-radius: 0;
 
         h1 {
@@ -561,7 +563,7 @@ body {
 
   @media (min-width: 1024px){
     .container-contact{
-      gap: 0;
+      gap: 80px;
 
       .contact-text {
         display: inline-flex;
@@ -603,8 +605,68 @@ body {
         border-radius: 20px;
 
         h1 {
-          font-size: 30px;
-          padding: 50px 90px;
+          font-size: 28px;
+          padding: 40px 90px;
+        }
+        h5 {
+          text-align: start;
+          font-size: large;
+          padding: 10px 90px 25px;
+        }
+
+        form {
+          padding: 40px 90px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1280px){
+    .container-contact{
+      gap: 150px;
+
+      .contact-text {
+        display: inline-flex;
+        padding: 10px;
+        margin: 65px 10px 20px 45px;
+
+        div {
+          width: 300px;
+          position: relative;
+          padding-left: 10px;
+
+          .icon {
+            background-color: #00000010;
+            border: 1px solid rgba(0, 0, 0, 0.348);
+            position: absolute;
+            top: 5px;
+            left: -22px;
+            padding: 3px;
+            font-size: 26px;
+            border-radius: 5px;
+            color: black;
+          }
+          h1{
+            font-size: 23px;
+          }
+          h5 {
+            font-size: 16px;
+            
+          }
+          span {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .form-contact {
+        margin: 15px;
+        padding: 0;
+        border-radius: 20px;
+
+        h1 {
+          font-size: 28px;
+          padding: 30px 90px;
         }
         h5 {
           text-align: start;
@@ -621,6 +683,41 @@ body {
 
 }
 
+
+// profesionales section
+
+.section-pro {
+  height: 100vh;
+
+
+  .container-pro {
+    display: flex;
+    flex-direction: column;
+
+    .low-section {
+      display: flex;
+      flex-direction: column;
+
+      .form-pro {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid black;
+        padding: 20px;
+
+        label {
+          
+
+          input {
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
 
 
 .app {
@@ -684,11 +781,14 @@ body {
             text-align: center;
             position: relative;
             top: 5px;
+            transition: all 0.3s ease-in;
             
 
             // DROPDOWN HOVERED
             &:hover {
               background-color: #00000010;
+              transition: all 0.3s ease-in-out;
+
               .dropdown {
                 display: block;
                 position: absolute;
@@ -698,10 +798,13 @@ body {
                 padding: 20px 0 0 0 ;
                 right: -11px;
                 z-index: 13;
+                overflow: auto;
+                height: 500px;
+                
               }
             }
             a {
-              color: white;
+              color: black;
             }
 
             // DROPDOWN UNHOVERED

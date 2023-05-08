@@ -1,7 +1,12 @@
 'use client'
 import React from 'react'
-import {Navbar, Hero, InfoBrand,
-  About, Footer} from '../components/index'
+import {Navbar,
+  Hero,
+  InfoBrand,
+  AboutSection,
+  Workers,
+  Footer,
+  Slicer} from '../components/index'
 import axios from 'axios'
 
 
@@ -10,22 +15,12 @@ const index = ({data}) => {
     <div className='app'>
       <Navbar />
       <Hero />
-      {/* <About />
+      <AboutSection />
       <InfoBrand />
-      <Footer data={data}/> */}
+      <Workers />
+      <Footer />
     </div>
   )
 }
 
 export default index
-
-// export const getServerSideProps = async () => {
-//   const res = await axios.get('http://localhost:3000/api/users')
-//   const data = await res.data
-  
-//   return {
-//     props: {
-//       data
-//     }
-//   }
-// } 

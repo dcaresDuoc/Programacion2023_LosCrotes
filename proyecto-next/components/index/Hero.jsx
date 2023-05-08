@@ -1,23 +1,21 @@
 import Image from 'next/image'
-import Photo from '../public/man.png'
-import { InfoNav } from './index' 
+import Photo from '../../public/man.png'
 
 const Hero = () => {
   return (
     <div className='section'>
       <div className='container-hero'>
         <div className='left'>
-          <h1>Encuentra el profesional que necesitas</h1>
+          <h1>Reserva tu hora con expertos</h1>
           <div>
-            <h2>Mision principal</h2>
+            <h2>Encuentra y reserva citas con profesionales en línea</h2>
           </div>
-          <p>es brindar el profesional que mejor se adapte a tu entorno de trabajo</p>
+          <p>Ahorra tiempo y agenda fácilmente tu próxima consulta con nuestra plataforma de reservas en línea con profesionales técnicos</p>
         </div>
         <div className='right'> 
           <Image src={Photo} alt={Photo} width={500} height={350}/>
         </div>
       </div>
-      {/* <InfoNav /> */}
     </div>
 
   )

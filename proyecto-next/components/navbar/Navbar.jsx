@@ -3,18 +3,36 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../../public/FindSome.png'
 import { SlMenu } from 'react-icons/sl'
-import { useState } from 'react' 
+import { useState, useEffect } from 'react' 
 import { IoIosArrowDown } from 'react-icons/io'
+import useUser from '../../hooks/useUser'
 
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+  const { user } = useUser()
 
-  console.log(openMenu)
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 100);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos, visible]);
+
+  // console.log(openMenu)
+  // console.log(visible)
+  console.log(user)
 
 
   return (
-    <div className={`${openMenu ? 'active' : ''} nav-section`}>
+    <div className={`${openMenu ? 'active' : ''} nav-section ${visible ? 'nav-section' : 'hidden'}`}>
       <div className="nav-container">
 
         <div className="logo-brand">
@@ -26,38 +44,63 @@ const Navbar = () => {
         <ul className={`${openMenu ? 'active' : ''} links`}>
           
           <li className="item">
+            <Link href="/professionals">
+              Buscar profesionales
+            </Link>
+          </li>
+          <li className="item">
             <Link href='/profesionales'>
-              Productos
+              Servicios
             </Link>
               <ul className='dropdown'>
                 <li>
                   <Link href="/productos/producto-1">
-                    Producto 1
+                    Servicios eléctricos
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-2">
-                    Producto 2
+                    Informática y Telecomunicaciones
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-3">
-                    Producto 3
+                    Servicios de Salud
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-1">
-                    Producto 1
+                    Servicios de mecánica
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-2">
-                    Producto 2
+                    Asesorías y Negocios
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-3">
-                    Producto 3
+                    Construcción
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Diseño
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Gastronomía
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Servicios de ingeniería
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Comunicaciones
                   </Link>
                 </li>
               </ul>
@@ -68,11 +111,12 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="item">
-            <Link href="/contactform">
+            <Link href="/contact">
               Contacto
             </Link>
           </li>
         </ul>
+
 
         <div className={`${openMenu ? 'active' : ''} session-btn`}>
         

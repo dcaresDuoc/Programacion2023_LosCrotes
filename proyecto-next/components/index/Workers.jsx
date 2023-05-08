@@ -1,8 +1,6 @@
 import React from 'react'
-import { Cards } from './index'
-import axios from 'axios'
-
-const Workers = ({data}) => {
+import { Slicer } from '../index'
+const Workers = () => {
   return (
     <div className='section-work'>
       <div className='container-workers'>
@@ -13,7 +11,7 @@ const Workers = ({data}) => {
           </span>
         </div>
 
-        <Cards users={data}/>
+        <Slicer />
       </div>
     </div>
   )

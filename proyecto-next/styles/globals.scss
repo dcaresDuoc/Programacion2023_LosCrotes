@@ -98,6 +98,77 @@ body {
 
  // testeo de estilos de professionals-page
 
+.section-specs {
+  height: 100vh;
+.container-specs{
+  margin-top: 200px;
+}
+
+
+
+
+
+
+}
+
+
+.card {
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.163);
+  width: 300px;
+  height: 450px;
+  border-radius: 10px;
+  background-color: white;
+
+  .card-img {
+    width: auto;
+    height: auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .card-info {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    word-wrap: break-word;
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      text-align: center;
+    }
+    h5 {
+      margin: 0;
+      font-size: 17px;
+      text-align: center;
+      font-weight: 300;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // AUTH SECTION
 
@@ -1588,42 +1659,7 @@ body {
       .swiper-wrapper {
         display: flex;
 
-        .card {
-          box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.163);
-          width: 300px;
-          height: 450px;
-          border-radius: 10px;
-          background-color: white;
-
-          .card-img {
-            width: auto;
-            height: auto;
-
-            img {
-              width: 100%;
-            }
-          }
-
-          .card-info {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            max-width: 100%;
-            word-wrap: break-word;
-
-            h1 {
-              margin: 0;
-              font-size: 30px;
-              text-align: center;
-            }
-            h5 {
-              margin: 0;
-              font-size: 17px;
-              text-align: center;
-              font-weight: 300;
-            }
-          }
-        }
+        
       }
         .swiper-button-next:after{
           color:hsl(286, 47%, 49%);

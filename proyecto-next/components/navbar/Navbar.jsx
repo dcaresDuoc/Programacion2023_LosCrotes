@@ -49,6 +49,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="item">
+            <Link href="/specs">
+              Especifica tu problema
+            </Link>
+          </li>
+          <li className="item">
             <Link href='/profesionales'>
               Servicios
             </Link>

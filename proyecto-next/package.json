@@ -25,7 +25,7 @@
     "react-icons": "^4.8.0",
     "sass": "^1.60.0",
     "sweetalert2": "^11.4.8",
-    "swiper": "9.2.4",
+    "swiper": "^9.2.4",
     "swr": "^2.1.5",
     "universal-cookie": "^4.0.4"
   }

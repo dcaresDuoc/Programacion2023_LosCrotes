@@ -26,10 +26,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos, visible]);
 
-  // console.log(openMenu)
-  // console.log(visible)
-  console.log(user)
-
+  
 
   return (
     <div className={`${openMenu ? 'active' : ''} nav-section ${visible ? 'nav-section' : 'hidden'}`}>
@@ -41,6 +38,8 @@ const Navbar = () => {
           </Link>
         </div>
 
+      {!user  ? (
+        <>
         <ul className={`${openMenu ? 'active' : ''} links`}>
           
           <li className="item">
@@ -113,6 +112,13 @@ const Navbar = () => {
             : <IoIosArrowDown />      
           }
         </div>
+        </>
+      ) : 
+      (
+        <div>
+          Hola
+        </div>
+      )}
       </div>
     </div>
   )

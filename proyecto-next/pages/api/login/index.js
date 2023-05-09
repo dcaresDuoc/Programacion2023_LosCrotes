@@ -2,6 +2,7 @@ import { pool } from '../../../config/db'
 import jwt from 'jsonwebtoken'
 import { serialize } from 'cookie'
 
+
 async function authenticate(email, password) {
   const [row] = await pool.query("SELECT * FROM users WHERE email = ?", [email])
   
@@ -16,7 +17,6 @@ async function authenticate(email, password) {
 
   return row
 }
-
 export default async function handler (req, res) {
   if (req.method !== "POST") {
     res.status(405).end()

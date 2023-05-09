@@ -1,5 +1,7 @@
-import React from 'react'
-import { Slicer } from '../index'
+import { Skeleton } from '@mui/material'
+import React, { lazy, Suspense } from 'react'
+
+const Slicer = lazy(() => import('../Slicer'))
 const Workers = () => {
   return (
     <div className='section-work'>
@@ -11,7 +13,15 @@ const Workers = () => {
           </span>
         </div>
 
-        <Slicer />
+        <Suspense fallback={
+          <>
+          <Skeleton />
+          <Skeleton animation="wave" />
+          <Skeleton animation={false} />
+          </>
+        }>
+          <Slicer />
+        </Suspense>
       </div>
     </div>
   )

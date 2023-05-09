@@ -3,12 +3,7 @@ import jwt from 'jsonwebtoken';
 
 export default function handler(req, res) {
   // Verifica si el usuario está autenticado
-  const authHeader = req.headers.authorization;
-  if (!authHeader) {
-    return res.status(401).json({ message: 'Not authenticated' });
-  }
-  const currentToken = req.cookies.Token
-  const token = authHeader.split(' ')[1];
+  const token = req.cookies.Token
   let decodedToken;
 
   try {
@@ -19,7 +14,7 @@ export default function handler(req, res) {
   }
 
   // Devuelve los datos del usuario actual (aquí se pueden cambiar los datos de usuario que se deseen)
-  const user = {decodedToken};
+  const user = {decodedToken}
 
-  res.status(200).json({ user });
+  return res.status(200).json({ user });
 }

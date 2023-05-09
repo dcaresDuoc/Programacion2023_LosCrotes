@@ -3,7 +3,7 @@ import { Specs } from '../components/index'
 
 const specs = () => {
   return (
-    <div classname='section-specs'>
+    <div className='section-specs'>
       <Specs />
     </div>
   )

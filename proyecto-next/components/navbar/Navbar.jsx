@@ -43,38 +43,68 @@ const Navbar = () => {
         <ul className={`${openMenu ? 'active' : ''} links`}>
           
           <li className="item">
+            <Link href="/professionals">
+              Buscar profesionales
+            </Link>
+          </li>
+          <li className="item">
+            <Link href="/specs">
+              Especifica tu problema
+            </Link>
+          </li>
+          <li className="item">
             <Link href='/profesionales'>
-              Productos
+              Servicios
             </Link>
               <ul className='dropdown'>
                 <li>
                   <Link href="/productos/producto-1">
-                    Producto 1
+                    Servicios eléctricos
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-2">
-                    Producto 2
+                    Informática y Telecomunicaciones
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-3">
-                    Producto 3
+                    Servicios de Salud
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-1">
-                    Producto 1
+                    Servicios de mecánica
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-2">
-                    Producto 2
+                    Asesorías y Negocios
                   </Link>
                 </li>
                 <li>
                   <Link href="/productos/producto-3">
-                    Producto 3
+                    Construcción
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Diseño
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Gastronomía
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Servicios de ingeniería
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/productos/producto-3">
+                    Comunicaciones
                   </Link>
                 </li>
               </ul>
@@ -90,6 +120,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
+
 
         <div className={`${openMenu ? 'active' : ''} session-btn`}>
         

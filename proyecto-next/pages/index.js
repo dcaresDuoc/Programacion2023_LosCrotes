@@ -13,7 +13,7 @@ import axios from 'axios'
 const index = ({data}) => {
   return (
     <div className='app'>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <AboutSection />
       <InfoBrand />

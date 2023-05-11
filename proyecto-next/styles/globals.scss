@@ -166,7 +166,281 @@ body {
 }
 
 
+// NAVBAR BEGIN
+.nav-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #e5c3ef;
+  padding: 5px 20px;
+  z-index: 10;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 4px 4px 4px 4px rgb(164, 164, 164, 0.5);
 
+
+  &.hidden {
+    transform: translateY(-80px);
+    transition: all 0.3s ease;
+    }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+      .icons-menu {
+        display: none;
+      }
+    
+
+      .logo-brand {
+        position: relative;
+        top: 5px;
+        img {
+          width: 70%;
+          height: 100%;
+        }
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        position: relative;
+        gap: 10px;
+        cursor: pointer;
+
+        // ELEMENTO UL CON LA CLASE ITEM
+        .item {
+          color: white;
+          background-color: #d3afde;
+          padding: 5px 30px;
+          border-radius: 10px;
+          text-align: center;
+          position: relative;
+          top: 5px;
+          transition: all 0.3s ease-in;
+          
+
+          // DROPDOWN HOVERED
+          &:hover {
+            background-color: #00000010;
+            transition: all 0.3s ease-in-out;
+
+            .dropdown {
+              display: block;
+              position: absolute;
+              border-radius: 10px;
+              top: 28px;
+              width: 170px;
+              padding: 20px 0 0 0 ;
+              right: -11px;
+              z-index: 13;
+              overflow: auto;
+              height: 500px;
+              
+            }
+          }
+          a {
+            color: black;
+          }
+
+          // DROPDOWN UNHOVERED
+          .dropdown{
+            background-color: #d3afde;
+            display: none;       
+            
+            li {
+              padding: 10px;
+
+              &:hover {
+                background-color: #00000010;
+              }
+              a{
+                color: black;
+              }
+            }
+          }
+        }
+      }
+      // FIN DE LA CLASE UL
+
+      // SESSION - LOGIN AND REGISTER 
+
+      .session-btn {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        .signup-session { 
+          padding: 10px 40px;
+          border-radius: 10px;
+
+          a{
+            color: black;
+          }
+
+          &:hover {
+            background-color: #d3afde;
+          }
+        }
+
+        .register-session {
+          background-color: #d3afde;
+          padding: 10px 40px;
+          border-radius: 10px;
+
+          a{
+            color: black;
+          }
+
+          &:hover {
+            background-color: #00000010;
+          }
+        }
+
+        
+      }
+    }
+
+  @media (max-width: 640px){
+    max-width: 100%;
+    height: 60px;
+    
+    &.active {
+      height: 100vh;
+      position: static;
+      background-color: #dcb1e941;
+      transition: all 0.6s ease-in;
+    }
+    
+
+    .nav-container{
+
+      .logo-brand {
+        top: 5px;
+        width: auto;
+
+        img {
+          width: 80px;
+          height: 50px;
+        }
+      }
+
+      .links {
+        display: block;
+        flex-direction: column;
+        position: absolute;
+        top: -200px;
+        right: 0;
+        transition:cubic-bezier(1, 0, 0, 1);
+
+        a{
+          color: black;
+        }
+        
+        &.active {
+          top: 70px;
+          transition: all 0.5s ease-out;
+        }
+      }
+
+      .session-btn {
+        display: none;
+        position: absolute;
+        top: 320px;
+        right: -400px;
+
+        &.active {
+          display: block;
+          right: 20px;
+          transition: all 0.5s ease-out;
+        }
+
+        .signup-session {
+          margin-bottom: 10px;
+          left: -400px;
+        }
+
+
+      }
+
+      .icons-menu {
+        position: relative;
+        top: 7px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 854px){
+    position: sticky;
+
+    .nav-container {
+      justify-content: flex-end;
+      gap: 20px; 
+
+
+      .logo-brand {
+        position: absolute;
+        top: 10px;
+        left: 15px;
+        z-index: 2;
+        
+        img {
+          width: 80px;
+          height: 50px;
+        }
+      }
+
+      .links {
+        display: block;
+        flex-direction: column;
+        position: absolute;
+        top: -400px;
+        right: 0;
+        transition:cubic-bezier(1, 0, 0, 1);
+
+        &.active {
+          top: 70px;
+        }
+      }
+
+
+      .icons-menu {
+        display: block;
+      }
+    }
+  }
+
+  @media (max-width: 1150px){
+    width: 100wv;
+
+    .nav-container {
+
+      .links {
+        .item {
+          padding: 10px 25px;
+        }
+      }
+
+      .session-btn {
+
+        .signup-session{
+          padding: 10px 20px;
+        }
+
+        .register-session {
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+
+}
+
+// END OF NAVBAR
 
 
 
@@ -812,284 +1086,7 @@ body {
   scroll-behavior: smooth;
   scrollbar-color: black;
   width: 100vw;
-  scroll-behavior: auto;
-
-  // NAVBAR BEGIN
-  .nav-section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background-color: #e5c3ef;
-    padding: 5px 20px;
-    z-index: 10;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    box-shadow: 4px 4px 4px 4px rgb(164, 164, 164, 0.5);
-
-
-    &.hidden {
-      transform: translateY(-80px);
-      transition: all 0.3s ease;
-      }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-        .icons-menu {
-          display: none;
-        }
-      
-
-        .logo-brand {
-          position: relative;
-          top: 5px;
-          img {
-            width: 70%;
-            height: 100%;
-          }
-        }
-
-        .links {
-          display: flex;
-          align-items: center;
-          position: relative;
-          gap: 10px;
-          cursor: pointer;
-
-          // ELEMENTO UL CON LA CLASE ITEM
-          .item {
-            color: white;
-            background-color: #d3afde;
-            padding: 5px 30px;
-            border-radius: 10px;
-            text-align: center;
-            position: relative;
-            top: 5px;
-            transition: all 0.3s ease-in;
-            
-
-            // DROPDOWN HOVERED
-            &:hover {
-              background-color: #00000010;
-              transition: all 0.3s ease-in-out;
-
-              .dropdown {
-                display: block;
-                position: absolute;
-                border-radius: 10px;
-                top: 28px;
-                width: 170px;
-                padding: 20px 0 0 0 ;
-                right: -11px;
-                z-index: 13;
-                overflow: auto;
-                height: 500px;
-                
-              }
-            }
-            a {
-              color: black;
-            }
-
-            // DROPDOWN UNHOVERED
-            .dropdown{
-              background-color: #d3afde;
-              display: none;       
-              
-              li {
-                padding: 10px;
-
-                &:hover {
-                  background-color: #00000010;
-                }
-                a{
-                  color: black;
-                }
-              }
-            }
-          }
-        }
-        // FIN DE LA CLASE UL
-
-        // SESSION - LOGIN AND REGISTER 
-
-        .session-btn {
-          display: flex;
-          gap: 20px;
-          align-items: center;
-
-          .signup-session { 
-            padding: 10px 40px;
-            border-radius: 10px;
-
-            a{
-              color: black;
-            }
-
-            &:hover {
-              background-color: #d3afde;
-            }
-          }
-
-          .register-session {
-            background-color: #d3afde;
-            padding: 10px 40px;
-            border-radius: 10px;
-
-            a{
-              color: black;
-            }
-
-            &:hover {
-              background-color: #00000010;
-            }
-          }
-
-          
-        }
-      }
-
-    @media (max-width: 640px){
-      max-width: 100%;
-      height: 60px;
-      
-      &.active {
-        height: 100vh;
-        position: static;
-        background-color: #dcb1e941;
-        transition: all 0.6s ease-in;
-      }
-      
-
-      .nav-container{
-
-        .logo-brand {
-          top: 5px;
-          width: auto;
-
-          img {
-            width: 80px;
-            height: 50px;
-          }
-        }
-
-        .links {
-          display: block;
-          flex-direction: column;
-          position: absolute;
-          top: -200px;
-          right: 0;
-          transition:cubic-bezier(1, 0, 0, 1);
-
-          a{
-            color: black;
-          }
-          
-          &.active {
-            top: 70px;
-            transition: all 0.5s ease-out;
-          }
-        }
-
-        .session-btn {
-          display: none;
-          position: absolute;
-          top: 320px;
-          right: -400px;
-
-          &.active {
-            display: block;
-            right: 20px;
-            transition: all 0.5s ease-out;
-          }
-
-          .signup-session {
-            margin-bottom: 10px;
-            left: -400px;
-          }
-
-
-        }
-
-        .icons-menu {
-          position: relative;
-          top: 7px;
-          font-size: 20px;
-        }
-      }
-    }
-
-    @media (max-width: 854px){
-      position: sticky;
-
-      .nav-container {
-        justify-content: flex-end;
-        gap: 20px; 
-
-
-        .logo-brand {
-          position: absolute;
-          top: 10px;
-          left: 15px;
-          z-index: 2;
-          
-          img {
-            width: 80px;
-            height: 50px;
-          }
-        }
-
-        .links {
-          display: block;
-          flex-direction: column;
-          position: absolute;
-          top: -400px;
-          right: 0;
-          transition:cubic-bezier(1, 0, 0, 1);
-
-          &.active {
-            top: 70px;
-          }
-        }
-
-
-        .icons-menu {
-          display: block;
-        }
-      }
-    }
-
-    @media (max-width: 1150px){
-      width: 100wv;
-
-      .nav-container {
-
-        .links {
-          .item {
-            padding: 10px 25px;
-          }
-        }
-
-        .session-btn {
-  
-          .signup-session{
-            padding: 10px 20px;
-          }
-
-          .register-session {
-            padding: 10px 20px;
-          }
-        }
-      }
-    }
-
-  }
-
-  // END OF NAVBAR
-
+  scroll-behavior: auto;  
 
   // BEGIN OF HERO ELEMENT
   .section {

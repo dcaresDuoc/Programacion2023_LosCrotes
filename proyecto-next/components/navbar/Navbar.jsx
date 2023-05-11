@@ -12,7 +12,7 @@ const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
-  const { user } = useUser()
+  // const { user } = useUser()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,8 +38,6 @@ const Navbar = () => {
           </Link>
         </div>
 
-      {!user  ? (
-        <>
         <ul className={`${openMenu ? 'active' : ''} links`}>
           
           <li className="item">
@@ -143,13 +141,6 @@ const Navbar = () => {
             : <IoIosArrowDown />      
           }
         </div>
-        </>
-      ) : 
-      (
-        <div>
-          Hola
-        </div>
-      )}
       </div>
     </div>
   )

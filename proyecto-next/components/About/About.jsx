@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import NotePhoto from '../public/note-code.jpg'
-import TablePhoto from '../public/table-code.jpg'
-import Logo from '../public/FindSome.png'
+import NotePhoto from '../../public/note-code.jpg'
+import TablePhoto from '../../public/table-code.jpg'
+import Logo from '../../public/FindSome.png'
 import React from 'react';
 import Link from 'next/link';
 

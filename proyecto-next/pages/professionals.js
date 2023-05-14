@@ -1,4 +1,4 @@
-import Professionals from '@/components/Professionals'
+import { Professionals } from '../components/index' 
 import React from 'react'
 
 const professionals = () => {

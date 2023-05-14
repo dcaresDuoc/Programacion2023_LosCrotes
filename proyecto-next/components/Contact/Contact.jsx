@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'next/image'
-import Logo from '../public/FindSome.png'
+import Logo from '../../public/FindSome.png'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/router'

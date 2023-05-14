@@ -12,14 +12,13 @@ import axios from 'axios'
 
 const index = ({data}) => {
   return (
-    <div className='app'>
-      {/* <Navbar /> */}
+    <main className='app'>
       <Hero />
       <AboutSection />
       <InfoBrand />
       <Workers />
       <Footer />
-    </div>
+    </main>
   )
 }
 

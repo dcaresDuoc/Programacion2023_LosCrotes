@@ -4,6 +4,8 @@ import { userData } from '../utils/userData'
 
 import { Pagination, Navigation } from 'swiper';
 
+import Cards from './Cards' 
+
 // Import Swiper style
 import 'swiper/css'
 import "swiper/css/pagination";
@@ -16,18 +18,18 @@ import Image from 'next/image'
 
 
 export default function Slicer () {
-  const [users, setUser] = useState([])
+  const [profesionales, setProfesionales] = useState([])
 
   useEffect(() => {
     async function getData() {
       const res = await userData()
-      setUser(res)
+      setProfesionales(res)
     }
 
     getData()
   },[])
 
-  console.log(users)
+  console.log(profesionales)
   
   return (
     <>
@@ -58,19 +60,10 @@ export default function Slicer () {
       navigation={true}
       modules={[Pagination, Navigation]}
     >
-      {users.map((user) => (
+      {profesionales.map((profesional) => (
         <div>
-          <SwiperSlide key={user.idusers}>
-            <div className='card'>
-              <div className='card-img'>
-                <Image src={Photo} alt='imagen de persona adulta' width={270} height={200}/>
-              </div>
-      
-              <div className='card-info'>
-                <h1>{user.username}</h1>
-                <h5>{user.email}</h5>
-              </div>
-            </div>
+          <SwiperSlide>
+            <Cards id={profesional.id_profesional} name={profesional.nombre} email={profesional.correo_electronico}/>
           </SwiperSlide>
         </div>
         ))}

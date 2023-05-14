@@ -67,9 +67,11 @@ body {
  // testeo de estilos de professionals-page
 
 .section-specs {
-  height: 100vh;
+  height: 100%;
+
   .container-specs{
-   display: flex;
+    padding-top: 100px;
+    display: flex;
    flex-direction: column;
    align-items: center;
 
@@ -89,16 +91,28 @@ body {
       border-radius: 10px;
       border: none;
       height: 50px;
-      width: 800px;
+      width: 1000px;
       }
     }
+  }
+
+  .content-specs {
+    margin-top: 50px;
+    border: 1px solid black;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    align-items: start;
+    
   }
 }
 
 
 .card {
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.163);
-  width: 300px;
+  width: 280px;
   height: 450px;
   border-radius: 10px;
   background-color: white;

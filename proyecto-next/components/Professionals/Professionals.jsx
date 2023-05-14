@@ -1,30 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { userData } from '../../utils/userData'
+import Cards from '../Cards'
+import TextField from '@mui/material/TextField';
 
-const professionals = [
-  { id: 1, name: "Juan Pérez", area: "Diseño Gráfico", hourlyRate: 300, region: "Metropolitana", commune: "Santiago", country: "Chile" },
-  { id: 2, name: "María González", area: "Diseño Web", hourlyRate: 500, region: "Valparaíso", commune: "Viña del Mar", country: "Chile" },
-  { id: 3, name: "Pedro Rodríguez", area: "Desarrollo Web", hourlyRate: 800, region: "Nuevo León", commune: "Monterrey", country: "México" },
-  { id: 4, name: "Ana Gutiérrez", area: "Marketing Digital", hourlyRate: 700, region: "Metropolitana", commune: "Las Condes", country: "Chile" },
-  { id: 5, name: "Rosa Alvarado Priego", area: "Diseño Gráfico", hourlyRate: 300, region: "Metropolitana", commune: "Santiago", country: "Chile" },
-  { id: 6, name: "Aroa Lluch-Vall", area: "Diseño Web", hourlyRate: 500, region: "Valparaíso", commune: "Viña del Mar", country: "Chile" },
-  { id: 7, name: "Bernardita Lluch Aguilera", area: "Desarrollo Web", hourlyRate: 800, region: "Nuevo León", commune: "Monterrey", country: "México" },
-  { id: 8, name: "Marcela Palacio Calzada", area: "Marketing Digital", hourlyRate: 700, region: "Metropolitana", commune: "Las Condes", country: "Chile" },
-  { id: 9, name: "Amada Guillén Mascaró", area: "Diseño Gráfico", hourlyRate: 300, region: "Metropolitana", commune: "Santiago", country: "Chile" },
-  { id: 10, name: "Charo Elorza-Campoy", area: "Diseño Web", hourlyRate: 500, region: "Valparaíso", commune: "Viña del Mar", country: "Chile" },
-  { id: 11, name: "John Smith", area: "Diseño Gráfico", hourlyRate: 400, region: "California", commune: "Los Angeles", country: "Estados Unidos" },
-  { id: 12, name: "Maria Garcia", area: "Diseño Web", hourlyRate: 600, region: "Andalucía", commune: "Sevilla", country: "España" },
-  { id: 13, name: "Peter Johnson", area: "Desarrollo Web", hourlyRate: 900, region: "London", commune: "London", country: "Reino Unido" },
-  { id: 14, name: "Anna Müller", area: "Marketing Digital", hourlyRate: 750, region: "Bavaria", commune: "Munich", country: "Alemania" },
-];
 
 function Professionals() {
+  const [profesionales, setProfesionales] = useState([])
+
+  useEffect(() => {
+    async function getData(){
+      const newData = await userData()
+      setProfesionales(newData)
+    }
+
+    getData()
+
+  }, [])
+
   const [filters, setFilters] = useState({
-    name: "",
-    area: "",
-    hourlyRate: "",
+    nombre: "",
+    profesion: "",
     region: "",
-    commune: "",
-    country: "",
+    comuna: "",
+    cuidad: "",
   });
 
   const handleFilterChange = (event) => {
@@ -34,23 +32,21 @@ function Professionals() {
 
   const handleResetFilters = () => {
     setFilters({
-      name: "",
-      area: "",
-      hourlyRate: "",
+      nombre: "",
+      profesion: "",
       region: "",
-      commune: "",
-      country: "",
+      comuna: "",
+      cuidad: "",
     });
   };
 
-  const filteredProfessionals = professionals.filter((professional) => {
+  const filteredProfessionals = profesionales.filter((profesionales) => {
     return (
-      (filters.name === "" || professional.name.toLowerCase().startsWith(filters.name.toLowerCase())) &&
-      (filters.area === "" || professional.area.toLowerCase().startsWith(filters.area.toLowerCase())) &&
-      (filters.hourlyRate === "" || professional.hourlyRate <= filters.hourlyRate) &&
-      (filters.region === "" || professional.region.toLowerCase().startsWith(filters.region.toLowerCase())) &&
-      (filters.commune === "" || professional.commune.toLowerCase().startsWith(filters.commune.toLowerCase())) &&
-      (filters.country === "" || professional.country.toLowerCase().startsWith(filters.country.toLowerCase()))
+      (filters.nombre === "" || profesionales.nombre.toLowerCase().startsWith(filters.nombre.toLowerCase())) &&
+      (filters.profesion === "" || profesionales.profesion.toLowerCase().startsWith(filters.profesion.toLowerCase())) &&
+      (filters.region === "" || profesionales.region.toLowerCase().startsWith(filters.region.toLowerCase())) &&
+      (filters.comuna === "" || profesionales.comuna.toLowerCase().startsWith(filters.comuna.toLowerCase())) &&
+      (filters.cuidad === "" || profesionales.cuidad.toLowerCase().startsWith(filters.cuidad.toLowerCase()))
     );
   });
 
@@ -58,53 +54,24 @@ function Professionals() {
 
   return (
     <div className="container-pro">
-      <h1>Search for Professionals</h1>
+      <h1 className="title">Search for Professionals</h1>
       
       <div className="low-section">
         <form className="form-pro">
-        <label>
-            Name:
-            <input type="text" name="name" value={filters.name} onChange={handleFilterChange} />
-          </label>
-          <br />
-          <label>
-            Area:
-            <input type="text" name="area" value={filters.area} onChange={handleFilterChange} />
-          </label>
-          <br />
-          <label>
-            Hourly Rate:
-            <input type="number" name="hourlyRate" value={filters.hourlyRate} onChange={handleFilterChange} />
-          </label>
-          <br />
-          <label>
-            Region:
-            <input type="text" name="region" value={filters.region} onChange={handleFilterChange} />
-          </label>
-          <br />
-          <label>
-            Commune:
-            <input type="text" name="commune" value={filters.commune} onChange={handleFilterChange} />
-          </label>
-          <br />
-          <label>
-            Country:
-            <input type="text" name="country" value={filters.country} onChange={handleFilterChange} />
-          </label>
-          <br />
-          <button type="button" onClick={handleResetFilters}>
-            Reset Filters
-          </button>
-        </form>
-        <ul>
-          {filteredProfessionals.map((professional) => (
-            <li key={professional.id}>
-              {professional.name}, {professional.area},
-              {professional.hourlyRate} USD/hour, {professional.commune}, {professional.region}, {professional.country}
-            </li>
-          ))}
-        </ul>
+          <input type="text" name="profesion" value={filters.profesion} placeholder="Profesion" onChange={handleFilterChange} />
+          <input type="text" name="region" value={filters.region} placeholder="Region" onChange={handleFilterChange} />
+          <input type="text" name="comuna" value={filters.comuna} placeholder="Comuna" onChange={handleFilterChange} />
+          <input type="text" name="cuidad" value={filters.cuidad} placeholder="Cuidad" onChange={handleFilterChange} />
+        <button type="button" onClick={handleResetFilters}>
+          Reset Filters
+        </button>
+      </form>
+      <div className="box-profesional">
+        {filteredProfessionals.map((profesional) => (
+          <Cards key={profesional.id_profesional} id={profesional.id_profesional} profesion={profesional.profesion} name={profesional.nombre} email={profesional.correo_electronico} bio={profesional.biografia}/>
+        ))}
       </div>
+    </div>
 </div>
 );
 }

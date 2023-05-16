@@ -1,24 +1,34 @@
 import Image from 'next/image'
 import Photo from '../../public/shoppingcart.png'
 
-const Hero = () => {
+
+const shoppingcart = () => {
+  const [cartItems, setCartItems] = useState([]);
+
+  // Función para agregar un producto al carrito
+  const addToCart = (product) => {
+    setCartItems([...cartItems, product]);
+  };
+
+  // Función para eliminar un producto del carrito
+  const removeFromCart = (product) => {
+    const updatedCart = cartItems.filter((item) => item !== product);
+    setCartItems(updatedCart);
+  };
+
   return (
-    <div className='section'>
-      <div className='container-hero'>
-        <div className='left'>
-          <h1>Reserva tu hora con expertos</h1>
-          <div>
-            <h2>Encuentra y reserva citas con profesionales en línea</h2>
-          </div>
-          <p>Ahorra tiempo y agenda fácilmente tu próxima consulta con nuestra plataforma de reservas en línea con profesionales técnicos</p>
-        </div>
-        <div className='right'> 
-          <Image src={Photo} alt={Photo} width={500} height={350}/>
-        </div>
-      </div>
+    <div>
+      <h2>Carrito de compras</h2>
+      <ul>
+        {cartItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+      <button onClick={() => addToCart('Producto 1')}>Agregar al carrito</button>
+      <button onClick={() => addToCart('Producto 2')}>Agregar al carrito</button>
+      <button onClick={() => removeFromCart('Producto 1')}>Eliminar del carrito</button>
     </div>
+  );
+};
 
-  )
-}
-
-export default Hero
+export default ShoppingCart;

@@ -6,7 +6,7 @@ import { SlMenu } from 'react-icons/sl'
 import { useState, useEffect } from 'react' 
 import { IoIosArrowDown } from 'react-icons/io'
 import useUser from '../../hooks/useUser'
-
+import Photo from '../../public/shoppingcart.png'
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -121,7 +121,13 @@ const Navbar = () => {
 
 
         <div className={`${openMenu ? 'active' : ''} session-btn`}>
-        
+
+          <div className='item'>
+            <Link href='/shoppingcart'>
+            <Image src={Photo} alt={Photo} width={50} height={35}/>
+            </Link>
+          </div>
+
           <div className='signup-session'>
             <Link href='/login'>
               Sign Up

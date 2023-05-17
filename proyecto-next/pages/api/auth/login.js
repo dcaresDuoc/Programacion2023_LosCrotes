@@ -4,14 +4,14 @@ import { serialize } from 'cookie'
 
 
 async function authenticate(email, password) {
-  const [row] = await pool.query("SELECT * FROM users WHERE email = ?", [email])
+  const [row] = await pool.query("SELECT * FROM clientes WHERE correo_electronico = ?", [email])
   
   if (row.length === 0) {
     throw new Error("El usuario no existe")
   }
   
   // Validar la contraseña utilizando una librería de hashing de contraseñas
-  if (password !== row[0]["password"]) {
+  if (password !== row[0]["contrasena"]) {
     throw new Error("Contraseña incorrecta")
   }
 

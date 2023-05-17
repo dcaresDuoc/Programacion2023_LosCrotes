@@ -62,7 +62,7 @@ export default function Slicer () {
     >
       {profesionales.map((profesional) => (
         <div>
-          <SwiperSlide>
+          <SwiperSlide key={profesional.id_profesional}>
             <Cards key={profesional.id_profesional} id={profesional.id_profesional} profesion={profesional.profesion} name={profesional.nombre} email={profesional.correo_electronico} bio={profesional.biografia}/>
           </SwiperSlide>
         </div>

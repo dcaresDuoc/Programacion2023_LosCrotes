@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Photo from '../../public/shoppingcart.png'
+import { useState } from 'react'
 
-
-const shoppingcart = () => {
+const Shoppingcart = () => {
   const [cartItems, setCartItems] = useState([]);
 
   // Función para agregar un producto al carrito
@@ -31,4 +31,4 @@ const shoppingcart = () => {
   );
 };
 
-export default ShoppingCart;
+export default Shoppingcart

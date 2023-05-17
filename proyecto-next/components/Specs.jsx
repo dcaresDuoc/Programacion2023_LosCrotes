@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Cards } from './index'
-import Image from 'next/image'
-import ImageInput from '../public/imaginput.jpeg'
 import { userData } from '../utils/userData'
 import compromise from 'compromise'
 import diacritic from 'diacritic'

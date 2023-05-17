@@ -7,12 +7,18 @@ import { useState, useEffect } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
 import useUser from '../../hooks/useUser'
 import Photo from '../../public/shoppingcart.png'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   // const { user } = useUser()
+
+  const router = useRouter()
+
+  const routesWithBar = ['/', '/professionals', '/specs']
+  const showNavbar = routesWithBar.includes(router.pathname)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +32,9 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos, visible]);
 
-  
+  if (!showNavbar){
+    return null
+  }
 
   return (
     <div className={`${openMenu ? 'active' : ''} nav-section ${visible ? 'nav-section' : 'hidden'}`}>

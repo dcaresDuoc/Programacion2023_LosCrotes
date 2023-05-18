@@ -73,7 +73,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="item">
-              <Link href='/services'>
+              <Link href='/servicios'>
                 Servicios
               </Link>
                 <ul className='dropdown'>

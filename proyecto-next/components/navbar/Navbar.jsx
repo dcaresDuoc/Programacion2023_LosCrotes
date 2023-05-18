@@ -20,7 +20,7 @@ const Navbar = () => {
 
   const router = useRouter()
 
-  const routesWithBar = ['/', '/professionals', '/specs']
+  const routesWithBar = ['/', '/professionals', '/specs','/servicios']
   const showNavbar = routesWithBar.includes(router.pathname)
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="item">
-              <Link href='/profesionales'>
+              <Link href='/services'>
                 Servicios
               </Link>
                 <ul className='dropdown'>

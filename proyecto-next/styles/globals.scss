@@ -104,6 +104,37 @@ body {
 }
 
 
+.section-servicios {
+  min-height: 100vh;
+
+  .container-servicios {
+    padding: 120px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+   
+    
+    .box-cartas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 30px;
+      justify-items: center;
+
+      .cartas {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+
+        h2 {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
+
 .card {
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.163);
   width: 280px;
@@ -114,6 +145,12 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  cursor: pointer;
+  
+  &:hover {
+    width: 288px;
+    height: 452px;
+  }
   
   .card-img {
     overflow: hidden;

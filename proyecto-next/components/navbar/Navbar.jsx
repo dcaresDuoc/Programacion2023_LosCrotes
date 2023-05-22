@@ -9,6 +9,7 @@ import { IoIosArrowDown } from 'react-icons/io'
 import useUser from '../../hooks/useUser'
 import Photo from '../../public/shoppingcart.png'
 import { useRouter } from 'next/router'
+import axios from 'axios'
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -20,7 +21,7 @@ const Navbar = () => {
 
   const router = useRouter()
 
-  const routesWithBar = ['/', '/professionals', '/specs','/servicios']
+  const routesWithBar = ['/', '/professionals', '/specs','/servicios','/servicios', '/contact']
   const showNavbar = routesWithBar.includes(router.pathname)
 
   useEffect(() => {
@@ -38,7 +39,6 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await axios.get('/api/auth/logout');
-      router.push('/'); // Redirigir a la página de inicio de sesión
       mutate()
     } catch (error) {
       console.error(error);

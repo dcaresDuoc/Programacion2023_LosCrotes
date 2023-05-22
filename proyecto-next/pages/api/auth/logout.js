@@ -1,9 +1,13 @@
-import Cookies from 'js-cookie';
-
 export default function handler(req, res) {
-  // Eliminar la cookie 'Token'
-  Cookies.remove('Token');
+  
 
-  // Enviar una respuesta JSON
-  res.status(200).json({ message: 'Logout successful' });
+  console.log(req.cookies.Token)
+
+  // Por ejemplo, si estás utilizando una cookie llamada "sessionId":
+  res.setHeader(
+    'Set-Cookie',
+    'Token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+  );
+
+  res.status(200).end();
 }

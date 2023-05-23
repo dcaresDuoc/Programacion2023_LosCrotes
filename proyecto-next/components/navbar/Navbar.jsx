@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../../public/FindSome.png'
-import Man from '../../public/Man.png'
+import Man from '../../public/man.png'
 import { SlMenu } from 'react-icons/sl'
 import { useState, useEffect } from 'react' 
 import { IoIosArrowDown } from 'react-icons/io'

@@ -10,13 +10,15 @@ export const usePro = () => {
     async function getData() {
       const response = await fetch('/api/profesionales')
       const data = await response.json()
-      setTimeout(() => {
         setProfesionales(data)
         setLoading(false)
-      }, 500)
     }
 
-    getData()
+    const timer = setTimeout(() => {
+      getData()
+    }, 500)
+
+    return () => clearInterval(timer)
   },[])
 
   
@@ -29,8 +31,6 @@ export const useProID = (id) => {
 
   useEffect(() => {
     const fetchProfessionalDetails = async () => {
-      setLoading(true)
-
       try {
         const response = await fetch(`/api/profesionales/${id}`)
         const data = await response.json()
@@ -39,15 +39,21 @@ export const useProID = (id) => {
         setTimeout(() => {
           setProfesional(data)
           setLoading(false)
-        }, 500)
+        }, 1000)
       } catch (error) {
         console.log(error)
         setLoading(false)
       }
     }
 
-    fetchProfessionalDetails()
+    const timer = setTimeout(() => {
+      fetchProfessionalDetails()
+    }, 500)
+
+
+  return () => clearTimeout(timer)
   }, [id])
 
+  
   return { profesional, loading }
 }

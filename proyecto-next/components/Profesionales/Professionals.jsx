@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Cards from '../Cards'
+import Cards from '../Cards';
 import TextField from '@mui/material/TextField';
 import Pagination from '@mui/material/Pagination';
 import { usePro } from "@/hooks/usePro";
 import { usePagination } from "../../hooks/usePagination";
-
+import Skeleton from '@mui/material/Skeleton';
 
 function Professionals() {
-  const { profesionales } = usePro()
+  const { profesionales } = usePro();
   const { page, pageSize, setPage, handlePageSizeChange } = usePagination();
 
   const [filters, setFilters] = useState({
@@ -47,12 +47,10 @@ function Professionals() {
 
   const totalPages = Math.ceil(filteredProfessionals.length / pageSize);
 
-
-
   return (
     <div className="container-pro">
       <h1 className="title">Search for Professionals</h1>
-      
+
       <div className="low-section">
         <form className="form-pro">
           <TextField color='secondary' label="Profesion" name="profesion" value={filters.profesion} onChange={handleFilterChange} />
@@ -69,15 +67,24 @@ function Professionals() {
           </div>
 
           <div className="box-cards">
-            {filteredProfessionals
+            {
+            filteredProfessionals
               .slice((page - 1) * pageSize, page * pageSize)
               .map((profesional) => (
-                <Cards key={profesional.id_profesional} id={profesional.id_profesional} profesion={profesional.profesion} name={profesional.nombre} email={profesional.correo_electronico} bio={profesional.biografia}/>
-              ))}
+                <Cards
+                  key={profesional.id_profesional}
+                  id={profesional.id_profesional}
+                  profesion={profesional.profesion}
+                  name={profesional.nombre}
+                  email={profesional.correo_electronico}
+                  bio={profesional.biografia}
+                />
+              ))
+            }
           </div>
 
           <div className="pagination">
-            <Pagination count={totalPages} page={page} onChange={(event, value) => {setPage(value);}}/>
+            <Pagination count={totalPages} page={page} onChange={(event, value) => { setPage(value); }} />
           </div>
         </div>
       </div>

@@ -41,12 +41,18 @@ export default function Slicer () {
       navigation={true}
       modules={[Pagination, Navigation]}
     >
-      {profesionales.map((profesional) => (
-          <SwiperSlide key={profesional.id_profesional}>
-            <Cards  key={profesional.id_profesional} profesion={profesional.profesion} name={profesional.nombre} email={profesional.correo_electronico} bio={profesional.biografia}/>
-          </SwiperSlide>
-        ))}
-      
+    {profesionales.map((profesional, index) => (
+      <SwiperSlide key={profesional.index}>
+        <Cards
+          key={profesional.id_profesional}
+          profesion={profesional.profesion}
+          name={profesional.nombre}
+          email={profesional.correo_electronico}
+          bio={profesional.biografia}
+        />
+      </SwiperSlide>
+    ))}
+    
       </Swiper>
     </>
   );

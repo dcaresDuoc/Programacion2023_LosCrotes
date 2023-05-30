@@ -22,7 +22,7 @@ const Navbar = () => {
   
   const router = useRouter()
 
-  const routesWithBar = ['/', '/professionals', '/specs','/servicios','/servicios', '/contact']
+  const routesWithBar = ['/', '/profesionales', '/specs','/servicios','/servicios', '/contacto']
   const showNavbar = routesWithBar.includes(router.pathname)
 
   const handleLogout = async () => {
@@ -53,7 +53,7 @@ const Navbar = () => {
           <>
           <ul className={`${openMenu ? 'active' : ''} links`}>
             <li className="item">
-              <Link href="/professionals">
+              <Link href="/profesionales">
                 Buscar profesionales
               </Link>
             </li>
@@ -82,7 +82,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="item">
-              <Link href="/contact">
+              <Link href="/contacto">
                 Contacto
               </Link>
             </li>

@@ -2,7 +2,7 @@ import { pool } from '../../../config/db'
 
 export default async function handler(req, res) {
   try {
-    const [row] = await pool.query("SELECT nombre, correo, biografia, profesion, ciudad, region, comuna FROM profesionales");
+    const [row] = await pool.query("SELECT id_profesional, nombre, correo, biografia, profesion, ciudad, region, comuna FROM profesionales");
 
     return res.status(200).json(row);
   } catch (error) {

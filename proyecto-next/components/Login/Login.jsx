@@ -43,8 +43,6 @@ const Login = () => {
     }
   }
 
-  console.log(user)
-
   return (
     <div className='auth'>
       <h1>Ingresar</h1>

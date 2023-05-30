@@ -1,23 +1,31 @@
 import { pool } from '../../../config/db'
+import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { serialize } from 'cookie'
 
-
 async function authenticate(email, password) {
-  const [row] = await pool.query("SELECT * FROM clientes WHERE correo_electronico = ?", [email])
-  
+  const [row] = await pool.query("SELECT nombre, correo_electronico, contrasena FROM clientes WHERE correo_electronico = ?", [email])
+
   if (row.length === 0) {
     throw new Error("El usuario no existe")
   }
-  
-  // Validar la contraseña utilizando una librería de hashing de contraseñas
-  if (password !== row[0]["contrasena"]) {
+
+  const hashedPassword = row[0].contrasena
+
+  // Compara la contraseña proporcionada con el hash almacenado utilizando bcrypt.compare
+  const passwordMatch = await bcrypt.compare(password, hashedPassword)
+
+  if (!passwordMatch) {
     throw new Error("Contraseña incorrecta")
   }
 
-  return row
+  return {
+    nombre: row[0].nombre,
+    correo_electronico: row[0].correo_electronico
+  }
 }
-export default async function handler (req, res) {
+
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).end()
     return
@@ -26,7 +34,6 @@ export default async function handler (req, res) {
   try {
     const { email, password } = req.body
     const user = await authenticate(email, password)
-    console.log(user)
 
     const token = jwt.sign({
       data: user,
@@ -38,7 +45,7 @@ export default async function handler (req, res) {
       secure: process.env.NODE_ENV === "production",
       sameSite: 'strict',
       maxAge: 1000 * 60 * 60,
-      path: '/' 
+      path: '/'
     })
 
     res.setHeader('Set-Cookie', serialized)

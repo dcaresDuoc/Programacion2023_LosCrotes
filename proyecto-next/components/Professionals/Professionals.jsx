@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { userData } from '../../utils/userData'
+import React, { useState } from "react";
 import Cards from '../Cards'
 import TextField from '@mui/material/TextField';
 import Pagination from '@mui/material/Pagination';
+import { usePro } from "@/hooks/usePro";
+import { usePagination } from "../../hooks/usePagination";
 
 
 function Professionals() {
-  const [profesionales, setProfesionales] = useState([])
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(5);
-
-  useEffect(() => {
-    async function getData(){
-      const newData = await userData()
-      setProfesionales(newData)
-    }
-
-    getData()
-
-  }, [])
+  const { profesionales } = usePro()
+  const { page, pageSize, setPage, handlePageSizeChange } = usePagination();
 
   const [filters, setFilters] = useState({
     nombre: "",
@@ -55,18 +45,9 @@ function Professionals() {
     );
   });
 
-  const pagedProfessionals = filteredProfessionals.slice((page - 1) * pageSize, page * pageSize);
-
   const totalPages = Math.ceil(filteredProfessionals.length / pageSize);
 
-  const handlePageChange = (event, value) => {
-    setPage(value);
-  };
 
-  const handlePageSizeChange = (event) => {
-    setPageSize(event.target.value);
-    setPage(1);
-  };
 
   return (
     <div className="container-pro">
@@ -84,7 +65,7 @@ function Professionals() {
         </form>
         <div className="box-profesional">
           <div className="box-filter_pro">
-            <TextField label="Limit" type="number" value={pageSize} onChange={handlePageSizeChange} />
+            <TextField label="Limit" type="number" min={1} value={pageSize} onChange={handlePageSizeChange} />
           </div>
 
           <div className="box-cards">

@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Cards = ({id, photo, name, email, bio, profesion}) => {
   return (
     <div className="cards">
-      <div className='card' key={id}>
+      <div className='card'>
         <div className='card-info'>
           <h1>{name}</h1>
           <h2>{email}</h2>

@@ -5,9 +5,7 @@ import {Navbar,
   InfoBrand,
   AboutSection,
   Workers,
-  Footer,
-  Slicer} from '../components/index'
-import axios from 'axios'
+  Footer} from '../components/index'
 
 
 const index = ({data}) => {

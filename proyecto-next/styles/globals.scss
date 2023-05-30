@@ -148,8 +148,7 @@ body {
   cursor: pointer;
   
   &:hover {
-    width: 288px;
-    height: 452px;
+    scale: 1.02;
   }
   
   .card-img {
@@ -234,10 +233,13 @@ body {
 
       .logo-brand {
         position: relative;
-        top: 5px;
+        top: 3px;
+        width: 80px;
+        height: 70px;
         img {
-          width: 70%;
+          width: 100%;
           height: 100%;
+          object-fit: contain;
         }
       }
 
@@ -247,58 +249,72 @@ body {
         position: relative;
         gap: 10px;
         cursor: pointer;
+        margin: 0;
 
         // ELEMENTO UL CON LA CLASE ITEM
         .item {
-          color: white;
-          background-color: #d3afde;
-          padding: 5px 30px;
-          border-radius: 10px;
-          text-align: center;
-          position: relative;
-          top: 5px;
-          transition: all 0.3s ease-in;
-          
-
-          // DROPDOWN HOVERED
-          &:hover {
-            background-color: #00000010;
-            transition: all 0.3s ease-in-out;
-
-            .dropdown {
-              display: block;
-              position: absolute;
-              border-radius: 10px;
-              top: 28px;
-              width: 170px;
-              padding: 20px 0 0 0 ;
-              right: -11px;
-              z-index: 13;
-              overflow: auto;
-              height: 500px;
-              
-            }
-          }
           a {
             color: black;
-          }
-
-          // DROPDOWN UNHOVERED
-          .dropdown{
             background-color: #d3afde;
-            display: none;       
-            
-            li {
-              padding: 10px;
+            padding: 10px 30px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            top: 5px;
+            transition: all 0.3s ease-in;
 
               &:hover {
-                background-color: #00000010;
-              }
+              background-color: #0000007e;
+              transition: all 0.3s ease-in-out;  
+            }       
+          }
+
+        &:hover {
+          .dropdown {
+            display: block;
+            background-color: #d3afde;
+            position: absolute;
+            top: 28px;
+            width: 210px;
+            z-index: 13;
+            left: 390px;
+            overflow: auto;
+            scroll-snap-type: none;
+            height: 500px;
+            border-radius: 10px;
+            padding-top: 10px;
+            padding-left: 5px;
+
+            &::-webkit-scrollbar-track {
+              background-color: transparent;
+            }
+
+            &::-webkit-scrollbar {
+              background-color: transparent;
+              width: 5px;
+            }
+            &::-webkit-scrollbar-thumb{
+              background-color: transparent;
+            }
+            
+
+            li {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 0;
+
               a{
-                color: black;
+                width: 200px;
               }
             }
           }
+        }
+
+
+          .dropdown{
+            display: none;
+            }  
         }
       }
       // FIN DE LA CLASE UL
@@ -306,38 +322,34 @@ body {
       // SESSION - LOGIN AND REGISTER 
 
       .session-btn {
+        position: relative;
+        bottom: 3px;
         display: flex;
-        gap: 20px;
         align-items: center;
+        gap: 5px;
 
-        .signup-session { 
-          padding: 10px 40px;
-          border-radius: 10px;
-
+        .signup-session {
           a{
             color: black;
-          }
-
-          &:hover {
-            background-color: #d3afde;
+            padding: 10px 30px;
+            border-radius: 10px;
+            &:hover {
+              background-color: #d3afde;
+            }
           }
         }
 
         .register-session {
-          background-color: #d3afde;
-          padding: 10px 40px;
-          border-radius: 10px;
-
           a{
+            background-color: #d3afde;
+            padding: 10px 30px;
+            border-radius: 10px;
             color: black;
-          }
-
-          &:hover {
-            background-color: #00000010;
+            &:hover {
+              background-color: #00000010;
+            }
           }
         }
-
-        
       }
 
       .detail-user {
@@ -1234,7 +1246,7 @@ body {
 // profesionales section
 
 .section-pro {
-  height: 100%;
+  min-height: 100vh;
 
   .container-pro {
     padding-top: 100px;

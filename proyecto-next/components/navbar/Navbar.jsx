@@ -10,31 +10,20 @@ import useUser from '../../hooks/useUser'
 import Photo from '../../public/shoppingcart.png'
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import { useScroll } from '../../hooks/useScroll';
+import { useSlug } from '@/hooks/useSlug'
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const { slug } = useSlug()
   const { user, mutate} = useUser()
-  
-  console.log(user)
+  const { visible } = useScroll()
 
+  
   const router = useRouter()
 
   const routesWithBar = ['/', '/professionals', '/specs','/servicios','/servicios', '/contact']
   const showNavbar = routesWithBar.includes(router.pathname)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 50);
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollPos, visible]);
 
   const handleLogout = async () => {
     try {
@@ -48,6 +37,7 @@ const Navbar = () => {
   if (!showNavbar){
     return null
   }
+
 
   return (
     <div className={`${openMenu ? 'active' : ''} nav-section ${visible ? 'nav-section' : 'hidden'}`}>
@@ -76,58 +66,15 @@ const Navbar = () => {
               <Link href='/servicios'>
                 Servicios
               </Link>
-                <ul className='dropdown'>
-                  <li>
-                    <Link href="/productos/producto-1">
-                      Servicios eléctricos
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/productos/producto-2">
-                      Informática y Telecomunicaciones
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/productos/producto-3">
-                      Servicios de Salud
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/productos/producto-1">
-                      Servicios de mecánica
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/productos/producto-2">
-                      Asesorías y Negocios
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/productos/producto-3">
-                      Construcción
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/productos/producto-3">
-                      Diseño
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/productos/producto-3">
-                      Gastronomía
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/productos/producto-3">
-                      Servicios de ingeniería
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/productos/producto-3">
-                      Comunicaciones
-                    </Link>
-                  </li>
-                </ul>
+              <ul className='dropdown'>
+                  {slug.map(category => (
+                    <li key={category.slug}>
+                      <Link href={`/servicios/cat=${category.slug}`}>
+                        {category.nombre}
+                      </Link>
+                    </li>
+                  ))}
+              </ul>  
             </li>
             <li className="item">
               <Link href="/about">
@@ -142,21 +89,15 @@ const Navbar = () => {
           </ul>
 
           <div className={`${openMenu ? 'active' : ''} session-btn`}>
-            <div className='item'>
-              <Link href='/shoppingcart'>
-              <Image src={Photo} alt={Photo} width={50} height={35}/>
-              </Link>
-            </div>
-
             <div className='signup-session'>
               <Link href='/login'>
-                Sign Up
+                Sign In
               </Link>
             </div>
 
             <div className='register-session'>
               <Link href='/register'>
-                Register
+                Sign Up
               </Link>
             </div>
           </div>
@@ -181,8 +122,7 @@ const Navbar = () => {
                 <Image src={Man} alt='logo de la empresa' width={100} height={60}/>
               </div>
 
-              <h3>{user.user.decodedToken.data[0].nombre}</h3>
-
+              <h3>{user.nombre}</h3>
               <button onClick={handleLogout}>Logout</button>
             </div>
 

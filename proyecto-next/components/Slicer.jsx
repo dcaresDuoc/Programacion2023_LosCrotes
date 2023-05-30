@@ -1,8 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useState, useEffect } from 'react'
-import { userData } from '../utils/userData' 
-
 import { Pagination, Navigation } from 'swiper';
+import { usePro } from '../hooks/usePro'
 
 import Cards from './Cards' 
 
@@ -12,25 +10,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 
-import Photo from '../public/man.png'
-import Image from 'next/image'
-
-
-
 export default function Slicer () {
-  const [profesionales, setProfesionales] = useState([])
-
-  useEffect(() => {
-    async function getData() {
-      const res = await userData()
-      setProfesionales(res)
-    }
-
-    getData()
-  },[])
-
-  console.log(profesionales)
-  
+  const { profesionales } = usePro()
   return (
     <>
       <Swiper
@@ -61,11 +42,9 @@ export default function Slicer () {
       modules={[Pagination, Navigation]}
     >
       {profesionales.map((profesional) => (
-        <div>
           <SwiperSlide key={profesional.id_profesional}>
-            <Cards key={profesional.id_profesional} id={profesional.id_profesional} profesion={profesional.profesion} name={profesional.nombre} email={profesional.correo_electronico} bio={profesional.biografia}/>
+            <Cards  key={profesional.id_profesional} profesion={profesional.profesion} name={profesional.nombre} email={profesional.correo_electronico} bio={profesional.biografia}/>
           </SwiperSlide>
-        </div>
         ))}
       
       </Swiper>

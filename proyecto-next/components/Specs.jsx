@@ -1,22 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Cards } from './index'
-import { userData } from '../utils/userData'
-import compromise from 'compromise'
 import diacritic from 'diacritic'
+import { usePro } from '@/hooks/usePro'
 
 const Specs = () => {
-  const [profesionales, setProfesionales] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
-  
-  useEffect(() => {
-    async function getData(){
-      const newData = await userData()
-      setProfesionales(newData)
-    }
-
-    getData()
-
-  }, [])
+  const { profesionales } = usePro()
 
   const handleSearch = () => {
     const searchTermArray = searchTerm.toLowerCase().split(' ');
@@ -38,7 +27,6 @@ const Specs = () => {
     return relevantProfessionals;
   };
 
-  console.log(handleSearch())
 
   return (
     <div className='container-specs'>

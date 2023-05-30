@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Photo from '../../public/man.png'
+import Photo from '../../public/zyro-image.png'
 
 const Hero = () => {
   return (
@@ -13,7 +13,7 @@ const Hero = () => {
           <p>Ahorra tiempo y agenda fácilmente tu próxima consulta con nuestra plataforma de reservas en línea con profesionales técnicos</p>
         </div>
         <div className='right'> 
-          <Image src={Photo} alt={Photo} width={500} height={350}/>
+          <Image src={Photo} alt={Photo} width={500} height={650}/>
         </div>
       </div>
     </div>

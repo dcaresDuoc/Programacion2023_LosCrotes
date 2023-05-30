@@ -5,10 +5,11 @@ import Pagination from '@mui/material/Pagination';
 import { usePro } from "@/hooks/usePro";
 import { usePagination } from "../../hooks/usePagination";
 import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 
 function Professionals() {
-  const { profesionales } = usePro();
-  const { page, pageSize, setPage, handlePageSizeChange } = usePagination();
+  const { profesionales, loading } = usePro();
+  const { page, pageSize, setPage, handlePageSizeChange} = usePagination(); // Usar setPageSize en lugar de handlePageSizeChange
 
   const [filters, setFilters] = useState({
     nombre: "",
@@ -35,18 +36,22 @@ function Professionals() {
     setPage(1);
   };
 
-  const filteredProfessionals = profesionales.filter((profesional) => {
-    return (
-      (filters.nombre === "" || profesional.nombre.toLowerCase().startsWith(filters.nombre.toLowerCase())) &&
-      (filters.profesion === "" || profesional.profesion.toLowerCase().startsWith(filters.profesion.toLowerCase())) &&
-      (filters.region === "" || profesional.region.toLowerCase().startsWith(filters.region.toLowerCase())) &&
-      (filters.comuna === "" || profesional.comuna.toLowerCase().startsWith(filters.comuna.toLowerCase())) &&
-      (filters.cuidad === "" || profesional.cuidad.toLowerCase().startsWith(filters.cuidad.toLowerCase()))
-    );
-  });
+  let filteredProfessionals = [];
+
+  if (profesionales) {
+    filteredProfessionals = profesionales.filter((profesional) => {
+      return (
+        (filters.nombre === "" || profesional.nombre.toLowerCase().startsWith(filters.nombre.toLowerCase())) &&
+        (filters.profesion === "" || profesional.profesion.toLowerCase().startsWith(filters.profesion.toLowerCase())) &&
+        (filters.region === "" || profesional.region.toLowerCase().startsWith(filters.region.toLowerCase())) &&
+        (filters.comuna === "" || profesional.comuna.toLowerCase().startsWith(filters.comuna.toLowerCase())) &&
+        (filters.cuidad === "" || profesional.cuidad.toLowerCase().startsWith(filters.cuidad.toLowerCase()))
+      );
+    });
+  }
 
   const totalPages = Math.ceil(filteredProfessionals.length / pageSize);
-
+  
   return (
     <div className="container-pro">
       <h1 className="title">Search for Professionals</h1>
@@ -67,20 +72,28 @@ function Professionals() {
           </div>
 
           <div className="box-cards">
-            {
-            filteredProfessionals
-              .slice((page - 1) * pageSize, page * pageSize)
-              .map((profesional) => (
+          {filteredProfessionals
+            .slice((page - 1) * pageSize, page * pageSize)
+            .map((profesional) => (
+            <div key={profesional.id_profesional}>
+              {loading ? (
+                <Stack spacing={2}>
+                  <Skeleton variant="rectangular" width={210} height={118} />
+                  <Skeleton />
+                  <Skeleton width="60%" />
+                </Stack>
+              ) : (
                 <Cards
-                  key={profesional.id_profesional}
                   id={profesional.id_profesional}
                   profesion={profesional.profesion}
                   name={profesional.nombre}
                   email={profesional.correo_electronico}
                   bio={profesional.biografia}
+                  loading={loading}
                 />
-              ))
-            }
+              )}
+            </div>
+          ))}
           </div>
 
           <div className="pagination">

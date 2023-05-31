@@ -38,14 +38,10 @@ const Navbar = () => {
 
 
   return (
-    <div className={`${openMenu ? 'active' : ''} nav-section ${visible ? 'nav-section' : 'hidden'}`}>
+    <div className={`nav-section ${visible ? 'nav-section' : 'hidden'}`}>
       <div className="nav-container">
 
-        <div className="logo-brand">
-          <Link href='/'>
-            <Image src={Logo} alt='logo de la empresa' width={100} height={60}/>
-          </Link>
-        </div>
+        <Image onClick={() => router.push('/') }className='logo' src={Logo} alt='logo de la empresa' width={100} height={60} />
 
         {!user ? (
           <>

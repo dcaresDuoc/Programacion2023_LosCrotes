@@ -1,0 +1,87 @@
+REATE TABLE clientes (
+  id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  correo_electronico VARCHAR(255) NOT NULL,
+  contrasena VARCHAR(255) NOT NULL,
+  telefono VARCHAR(20),
+  direccion VARCHAR(255),
+  cuidad VARCHAR(255),
+  region VARCHAR(255),
+  comuna VARCHAR(255)
+);
+
+CREATE TABLE profesion (
+  id_profesion INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  slug VARCHAR(255) NOT NULL,
+  cod_profesion VARCHAR(100) NOT NULL,
+  descripcion VARCHAR(255)
+);
+
+CREATE TABLE profesionales (
+  id_profesional INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  correo VARCHAR(255) NOT NULL,
+  contrasena VARCHAR(255) NOT NULL,
+  telefono VARCHAR(20),
+  direccion VARCHAR(255),
+  biografia TEXT,
+  profesion VARCHAR(20),
+  cuidad VARCHAR(255),
+  region VARCHAR(255),
+  comuna VARCHAR(255),
+  id_profesion INT,
+  FOREIGN KEY (id_profesion) REFERENCES profesion(id_profesion)
+);
+
+INSERT INTO profesion (nombre, slug, cod_profesion, descripcion) VALUES
+('Servicios eléctricos', 'servicios-electricos', 'ELE-01', 'Realización de instalaciones eléctricas y reparaciones.'),
+('Informática y Telecomunicaciones', 'informatica-telecomunicaciones', 'INF-02', 'Desarrollo y mantenimiento de sistemas informáticos y redes de comunicación.'),
+('Servicios de Salud', 'servicios-salud', 'SAL-03', 'Brindar servicios de atención médica y cuidado de la salud.'),
+('Servicios de mecánica', 'servicios-mecanica', 'MEC-04', 'Reparación y mantenimiento de vehículos y maquinarias.'),
+('Asesorías y Negocios', 'asesorias-negocios', 'NEG-05', 'Asesoramiento en diversas áreas de negocios y emprendimiento.'),
+('Construcción', 'construccion', 'CON-06', 'Realización de obras y proyectos de construcción.'),
+('Diseño', 'diseno', 'DIS-07', 'Diseño gráfico, industrial, de interiores, entre otros.'),
+('Gastronomía', 'gastronomia', 'GAS-08', 'Elaboración y preparación de alimentos y bebidas.'),
+('Servicios de ingeniería', 'servicios-ingenieria', 'ING-09', 'Servicios de ingeniería en diferentes disciplinas.'),
+('Comunicaciones', 'comunicaciones', 'COM-10', 'Comunicación, publicidad y relaciones públicas en diversos medios y canales.');
+
+INSERT INTO profesionales (id_profesional, nombre, correo, contrasena, telefono, direccion, biografia, profesion, ciudad, region, comuna, id_profesion) VALUES
+(1, 'Juan Pérez', 'juanperez@gmail.com', 'contraseña123', '+56987654321', 'Calle 123', 'Soy un profesional informático experimentado con más de 10 años de experiencia en el rubro', 'informatico', 'Santiago', 'Santiago', 'Santiago', 9),
+(2, 'María García', 'mariagarcia@hotmail.com', 'contraseña456', '+56912345678', 'Avenida 456', 'Me especializo en servicios de plomería y calefacción', 'gastifer', 'Viña del Mar', 'Valparaíso', 'Viña del Mar', 6),
+(3, 'Pedro González', 'pedrogonzalez@yahoo.com', 'contraseña789', '+56955555555', 'Calle 789', 'Ofrezco servicios de electricidad, con garantía de calidad y eficiencia', 'electricista', 'Concepción', 'Concepción', 'Concepción', 1),
+(4, 'Laura Sánchez', 'laurasanchez@gmail.com', 'contraseña012', '+56977777777', 'Calle 012', 'Especialista en pintura y decoración de interiores y exteriores', 'decorador', 'Antofagasta', 'Antofagasta', 'Antofagasta', 6),
+(5, 'Jorge Díaz', 'jorgediaz@hotmail.com', 'contraseña345', '+56999999999', 'Avenida 345', 'Realizo trabajos de carpintería fina, con atención a los detalles y acabados de alta calidad', 'carpintero', 'La Serena', 'Coquimbo', 'La Serena', 6),
+(6, 'Ana Torres', 'ana.torres@example.com', 'password789', '+56934567890', 'Av. Baquedano 881', 'Soy una diseñadora web apasionada y creativa, me encanta diseñar sitios web únicos y personalizados para cada uno de mis clientes.', 'disenadora-ux-ui', 'Antofagasta', 'Antofagasta', 'Antofagasta', 2),
+(7, 'Pedro Espinoza', 'pedro.espinoza@example.com', 'password111', '+56945678901', 'Calle Freire 111', 'Me especializo en el desarrollo de software y tengo más de 7 años de experiencia en el área. Soy una persona responsable y comprometida con mi trabajo.', 'desarrollador-web', 'Concepcion', 'Bio-Bio', 'Concepcion', 2),
+(8, 'Camila Ramirez', 'camila.ramirez@example.com', 'password222', '+56956789012', 'Av. Manuel Montt 655', 'Soy una diseñadora de interiores con una amplia trayectoria en el mercado. Me encanta crear espacios únicos y personalizados para cada uno de mis clientes.', 'disenadora-interiores', 'Santiago', 'Santiago', 'Providencia', 7),
+(9, 'Andres Morales', 'andres.morales@example.com', 'password333', '+56967890123', 'Av. San Martin 684', 'Me dedico al desarrollo de aplicaciones web. Soy una persona proactiva, con capacidad para trabajar en equipo y siempre en busca de nuevos desafíos.', 'desarrollo-web', 'Valparaiso', 'Valparaiso', 'Vina del Mar', 2),
+(10, 'Carla Herrera', 'carla.herrera@example.com', 'password444', '+56978901234', 'Calle 3 Norte 215', 'Soy una diseñadora gráfica con una amplia experiencia en el mercado. Me gusta trabajar en proyectos desafiantes y me siento muy cómoda trabajando en equipo.', 'disenadora-grafica', 'Antofagasta', 'Antofagasta', 'Calama', 7),
+(11, 'Mauricio Castro', 'mauricio.castro@example.com', 'password555', '+56989012345', 'Calle San Ignacio 500', 'Me especializo en el desarrollo de software y tengo más de 10 años de experiencia en el área. Me encanta trabajar en proyectos desafiantes y siempre estoy en busca de nuevos desafíos.', 'desarrollo-software', 'Concepcion', 'Bio-Bio', 'Talcahuano', 2),
+(12, 'Carlos Villanueva', 'carlosvillanueva@hotmail.com', 'password', '1112223333', 'Calle 789', 'Soy un experto en tecnología y seguridad informática', 'informatico', 'Valparaíso', 'Valparaíso', 'Viña del Mar', 2),
+(13, 'Laura Gomez', 'lauragomez@gmail.com', 'password', '4445556666', 'Calle 456', 'Tengo amplia experiencia en marketing digital y diseño gráfico', 'marketing', 'Santiago', 'Metropolitana', 'Las Condes', 7),
+(14, 'Pedro Morales', 'pedromorales@yahoo.com', 'password', '7778889999', 'Calle 789', 'Me especializo en terapia física y rehabilitación de lesiones deportivas', 'terapeuta', 'Valdivia', 'Los Ríos', 'Valdivia', 3),
+(15, 'Carla Torres', 'carlatorres@hotmail.com', 'password', '2223334444', 'Avenida 123', 'Soy una diseñadora de moda muy creativa y apasionada por mi trabajo', 'disenadora-moda', 'Santiago', 'Metropolitana', 'Providencia', 7),
+(16, 'Diego Castro', 'diegocastro@gmail.com', 'password', '8889990000', 'Calle 456', 'Soy un ingeniero civil experto en construcción de edificios y estructuras de gran escala', 'constructor', 'Concepción', 'Bío Bío', 'Concepción', 9),
+(17, 'María Fernández', 'mariafernandez@yahoo.com', 'password', '1112223333', 'Avenida 789', 'Me dedico a la enseñanza de idiomas y tengo experiencia en la preparación de exámenes internacionales', 'profesor', 'Valparaíso', 'Valparaíso', 'Valparaíso', 10),
+(18, 'Francisco Navarro', 'francisconavarro@hotmail.com', 'password', '4445556666', 'Calle 123', 'Soy un abogado especializado en derecho laboral y seguridad social', 'abogado', 'Santiago', 'Metropolitana', 'Ñuñoa', 5),
+(19, 'Javiera Ortiz', 'javieraortiz@gmail.com', 'password', '7778889999', 'Avenida 456', 'Me dedico a la psicología clínica y la terapia de pareja y familia', 'psicologa', 'Viña del Mar', 'Valparaíso', 'Viña del Mar', 3),
+(20, 'Luisa Pérez', 'luisa.perez@gmail.com', '123456', '+56987654321', 'Av. Libertador Bernardo O\'Higgins 123', 'Especialista en fisioterapia deportiva con 5 años de experiencia. Me encanta ayudar a los deportistas a recuperarse de lesiones y mejorar su rendimiento.', 'fisioterapeuta', 'Santiago', 'Santiago', 'Providencia', 3),
+(21, 'Pedro González', 'pedro.gonzalez@gmail.com', '123456', '+56987654321', 'Calle General Bustamante 345', 'Abogado especializado en derecho laboral con 7 años de experiencia. Me apasiona ayudar a los trabajadores a hacer valer sus derechos y defender sus intereses.', 'abogado', 'Santiago', 'Santiago', 'Ñuñoa', 5),
+(22, 'Carolina Castro', 'carolina.castro@gmail.com', '123456', '+56987654321', 'Av. Alemania 678', 'Especialista en marketing digital con 4 años de experiencia. Me encanta ayudar a las empresas a mejorar su presencia en línea y aumentar sus ventas.', 'marketing', 'Temuco', 'La Araucanía', 'Temuco', 5),
+(23, 'Juan Pérez', 'juan.perez@gmail.com', '123456', '+56987654321', 'Av. Baquedano 987', 'Ingeniero mecánico especializado en diseño de maquinaria pesada con 10 años de experiencia. Me apasiona crear soluciones innovadoras para mejorar la productividad y eficiencia de la industria.', 'mecanico-automotriz', 'Antofagasta', 'Antofagasta', 'Antofagasta', 5),
+(24, 'María González', 'maria.gonzalez@gmail.com', '123456', '+56987654321', 'Calle O\'Higgins 234', 'Psicóloga clínica especializada en terapia de pareja con 8 años de experiencia. Me encanta ayudar a las parejas a fortalecer su relación y superar sus dificultades.', 'psicologa', 'Valparaíso', 'Valparaíso', 'Valparaíso', 5),
+(25, 'Andrés Muñoz', 'andres.munoz@gmail.com', '123456', '+56987654321', 'Calle Huérfanos 567', 'Periodista especializado en investigación y reportaje con 6 años de experiencia. Me apasiona contar historias que generen impacto social y contribuyan a la verdad.', 'periodista', 'Santiago', 'Santiago', 'Santiago', 5),
+(26, 'Fernanda Herrera', 'fernanda.herrera@gmail.com', '123456', '+56987654321', 'Av. Alemania 123', 'Especialista en nutrición deportiva con 5 años de experiencia. Me encanta ayudar a los deportistas a optimizar su rendimiento a través de una alimentación adecuada.', 'nutricionista', 'Viña del Mar', 'Valparaíso', 'Viña del Mar', 3),
+(27, 'Luis Torres', 'luis.torres@gmail.com', '123456', '+56987654321', 'Calle Ejército 234', 'Diseñador gráfico especializado en diseño de marcas con 7 años de experiencia. Me apasiona crear identidades visuales impactantes y memorables para las empresas.', 'disenador-grafico', 'Santiago', 'Santiago', 'Providencia', 7),
+(28, 'Catalina Díaz', 'catalina.diaz@gmail.com', '123456', '+56987654321', 'Av. Baquedano 987', 'Diseñadora de interiores con 8 años de experiencia. Me encanta transformar espacios y crear ambientes funcionales y estéticamente atractivos.', 'disenador-interiores', 'Concepción', 'Bío Bío', 'Concepción', 7),
+(29, 'Roberto Morales', 'roberto.morales@gmail.com', '123456', '+56987654321', 'Calle General Bustamante 234', 'Ingeniero civil especializado en estructuras con 10 años de experiencia. Me apasiona diseñar y construir edificios y puentes que sean seguros y eficientes.', 'ingeniero-civil', 'Santiago', 'Santiago', 'Santiago', 9);
+
+
+INSERT INTO clientes (nombre, correo_electronico, contrasena, telefono, direccion, cuidad, region, comuna) VALUES 
+('Juan Perez', 'juanperez@gmail.com', '123456', '+56987654321', 'Calle Falsa 123', 'Santiago', 'Santiago', 'Las Condes'),
+('María González', 'mariagonzalez@hotmail.com', 'abc123', '+56222333444', 'Avenida Siempre Viva 456', 'Valparaíso', 'Valparaíso', 'Viña del Mar'),
+('Pedro Fernández', 'pedrofernandez@yahoo.com', 'qwerty', '+56912345678', 'Calle del Pez 789', 'Concepción', 'Biobío', 'Talcahuano');
+
+
+INFORMACION DE LA BASE DE DATOS PARA QUE SE VEAN TODAS LAS FUNCIONALIDADES HASTA EL MOMENTO

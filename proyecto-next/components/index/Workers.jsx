@@ -1,5 +1,5 @@
-import { Skeleton } from '@mui/material';
 import React, { lazy, Suspense } from 'react';
+import { Skeleton } from '@mui/material';
 
 // Componente diferido
 const Slicer = lazy(() => import('../Slicer'));

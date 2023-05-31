@@ -4,7 +4,7 @@ import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 
 
-const ProfessionalDetails = () => {
+const professionalDetails = () => {
   const router = useRouter();
   const { id } = router.query;
   const { profesional } = useProID(id);
@@ -34,4 +34,4 @@ const ProfessionalDetails = () => {
   );
 };
 
-export default ProfessionalDetails;
+export default professionalDetails;

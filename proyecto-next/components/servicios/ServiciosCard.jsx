@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const ServiciosCard = ({slug ,nombre, descripcion}) => {
   return (
-    <Link href={`/servicios/categorias/${slug}`}>
+    <Link href={`/servicios/${slug}`}>
         <div className='cartas'>
           <h2>{nombre}</h2>
           <p>{descripcion}</p>

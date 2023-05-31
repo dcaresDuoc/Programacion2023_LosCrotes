@@ -4,14 +4,13 @@ import Image from 'next/image'
 import Logo from '../../public/FindSome.png'
 import Man from '../../public/man.png'
 import { SlMenu } from 'react-icons/sl'
-import { useState, useEffect } from 'react' 
+import { useState} from 'react' 
 import { IoIosArrowDown } from 'react-icons/io'
 import useUser from '../../hooks/useUser'
-import Photo from '../../public/shoppingcart.png'
-import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useScroll } from '../../hooks/useScroll';
 import { useSlug } from '@/hooks/useSlug'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -19,10 +18,9 @@ const Navbar = () => {
   const { user, mutate} = useUser()
   const { visible } = useScroll()
 
-  
   const router = useRouter()
 
-  const routesWithBar = ['/', '/profesionales', '/specs','/servicios','/servicios', '/contacto']
+  const routesWithBar = ['/login']
   const showNavbar = routesWithBar.includes(router.pathname)
 
   const handleLogout = async () => {
@@ -34,7 +32,7 @@ const Navbar = () => {
     }
   };
 
-  if (!showNavbar){
+  if (showNavbar){
     return null
   }
 
@@ -69,7 +67,7 @@ const Navbar = () => {
               <ul className='dropdown'>
                   {slug.map(category => (
                     <li key={category.slug}>
-                      <Link href={`/servicios/cat=${category.slug}`}>
+                      <Link href={`/servicios/${category.slug}`}>
                         {category.nombre}
                       </Link>
                     </li>

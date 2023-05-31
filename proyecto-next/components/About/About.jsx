@@ -1,32 +1,40 @@
 import Image from 'next/image'
-import NotePhoto from '../../public/note-code.jpg'
-import TablePhoto from '../../public/table-code.jpg'
-import Logo from '../../public/FindSome.png'
 import React from 'react';
-import Link from 'next/link';
+import { creadores } from '../../utils/creadores.js'
+
 
 const About = () => {
   return (
-  <div className='container-info'>
-    <Link href='/' className='back'>
-      <Image src={Logo} alt='logo de la empresa' width={140} height={100}/>
-    </Link>
-    <div className='left-info'>
-      <div className='image-container'>
-      <Image src={NotePhoto} alt={NotePhoto} width={400} height={230}/>
+  <div className='container-about'>
+    <h1>"Expertos en Soluciones: Tu aliado confiable para servicios profesionales"</h1>
+    
 
-      <Image src={TablePhoto} alt={TablePhoto} width={400} height={230} style={{marginLeft: '10px'}}/>
+    <div className='boxes'>
+      <div className='historia'>
+        <p>
+          En un rincón del mundo empresarial nació nuestra empresa, 
+          con la visión de transformar la forma en que las personas 
+          acceden a servicios profesionales. Con pasión y dedicación, 
+          hemos creado una plataforma innovadora y 
+          fácil de usar que conecta a clientes con profesionales 
+          altamente capacitados. Nos enorgullece ser reconocidos como 
+          líderes en nuestro sector, brindando soluciones de alta 
+          calidad y experiencias gratificantes. Nuestra historia es un 
+          testimonio de nuestro compromiso con la excelencia y la 
+          pasión por marcar una diferencia positiva en la vida de las 
+          personas. Únete a nosotros en esta emocionante aventura 
+          mientras creamos juntos un futuro brillante y exitoso.
+        </p>
       </div>
-    </div>
-    <div className='right-info'>
-      <h1>Nuestros profesionales</h1>
 
-      <div className='container-info'>
-        <p>Bienvenido a Findsome, una empresa de servicios de entrega a domicilio que ofrece una amplia variedad de opciones para satisfacer tus necesidades. Nos enorgullecemos de ofrecer servicios de alta calidad a nuestros clientes y nos esforzamos por garantizar que cada entrega sea rápida, segura y eficiente.
-        Queremos compartir nuestra historia contigo. Findsome fue fundada por un grupo de profesionales dedicados a brindar servicios excepcionales a la comunidad. Desde entonces, hemos trabajado incansablemente para mejorar nuestros servicios y satisfacer las necesidades de nuestros clientes.
-        En Findsome, creemos en la importancia de la calidad y el compromiso con el cliente. Nos aseguramos de que nuestros profesionales sean altamente capacitados y experimentados, y trabajamos en estrecha colaboración con nuestros clientes para garantizar su satisfacción. Además, nos esforzamos por mantenernos al día con las últimas tendencias y tecnologías para mejorar continuamente nuestros servicios.
-        Aquí podrás conocer a nuestro equipo de profesionales y descubrir cómo trabajamos para brindarte los mejores servicios. También puedes leer sobre los valores que nos impulsan y cómo estos valores se reflejan en todo lo que hacemos.
-        En Findsome, estamos comprometidos a brindar un servicio excepcional y satisfacer las necesidades de nuestros clientes en todo momento. Nos enorgullece ser una empresa de confianza y esperamos trabajar contigo en tus próximos proyectos de entrega a domicilio. ¡Gracias por confiar en Findsome!</p>
+      <h2> Nuestros Creadores</h2>
+
+      <div className='partners'>
+        {creadores.map(creador => (
+          <div>
+            <Image src={creador} alt='Creadores imagenes' width={300} height={100}/>
+          </div>
+        ))}
       </div>
     </div>
   </div>

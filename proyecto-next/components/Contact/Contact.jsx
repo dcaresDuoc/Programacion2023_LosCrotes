@@ -42,17 +42,8 @@ function Contact() {
       })
     }
   }
-
-  console.log(formData)
   return (
     <div className='container-contact'>
-
-      <div className="logo-brand">
-        <Link href='/'>
-          <Image src={Logo} alt='logo de la empresa' width={100} height={60}/>
-        </Link>
-      </div>  
-
       <div className='contact-text'>
         
         <div>

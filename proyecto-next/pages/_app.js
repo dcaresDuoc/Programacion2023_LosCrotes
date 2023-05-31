@@ -7,12 +7,12 @@ import Head from 'next/head'
 export default function App({ Component, pageProps }) {
   return (
     <NextUIProvider>
-        <Layout>
-          <Head>
-          <title>Find some</title>
-        </Head>
+      <Head>
+        <title>Find some</title>
+      </Head>
+      <Layout>
           <Component {...pageProps} />
-        </Layout>
+      </Layout>
     </NextUIProvider>
   )
 }

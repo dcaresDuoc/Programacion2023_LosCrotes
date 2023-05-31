@@ -1,15 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Cards from '../Cards';
 import TextField from '@mui/material/TextField';
 import Pagination from '@mui/material/Pagination';
-import { usePro } from "@/hooks/usePro";
 import { usePagination } from "../../hooks/usePagination";
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 
-function Professionals() {
-  const { profesionales, loading } = usePro();
-  const { page, pageSize, setPage, handlePageSizeChange} = usePagination(); // Usar setPageSize en lugar de handlePageSizeChange
+function Professionals({ profesionales, loading }) {
+  const { page, pageSize, setPage, handlePageSizeChange } = usePagination();
 
   const [filters, setFilters] = useState({
     nombre: "",
@@ -36,10 +34,10 @@ function Professionals() {
     setPage(1);
   };
 
-  let filteredProfessionals = [];
-
-  if (profesionales) {
-    filteredProfessionals = profesionales.filter((profesional) => {
+  const filteredProfessionals = useMemo(() => {
+    if (!profesionales) return [];
+    
+    return profesionales.filter((profesional) => {
       return (
         (filters.nombre === "" || profesional.nombre.toLowerCase().startsWith(filters.nombre.toLowerCase())) &&
         (filters.profesion === "" || profesional.profesion.toLowerCase().startsWith(filters.profesion.toLowerCase())) &&
@@ -48,10 +46,12 @@ function Professionals() {
         (filters.cuidad === "" || profesional.cuidad.toLowerCase().startsWith(filters.cuidad.toLowerCase()))
       );
     });
-  }
+  }, [profesionales, filters]);
 
   const totalPages = Math.ceil(filteredProfessionals.length / pageSize);
-  
+
+  console.log(filteredProfessionals)
+
   return (
     <div className="container-pro">
       <h1 className="title">Search for Professionals</h1>
@@ -78,7 +78,7 @@ function Professionals() {
             <div key={profesional.id_profesional}>
               {loading ? (
                 <Stack spacing={2}>
-                  <Skeleton variant="rectangular" width={210} height={118} />
+                  <Skeleton variant="rectangular" width={210} height={318} />
                   <Skeleton />
                   <Skeleton width="60%" />
                 </Stack>
@@ -89,7 +89,6 @@ function Professionals() {
                   name={profesional.nombre}
                   email={profesional.correo_electronico}
                   bio={profesional.biografia}
-                  loading={loading}
                 />
               )}
             </div>
@@ -97,7 +96,13 @@ function Professionals() {
           </div>
 
           <div className="pagination">
-            <Pagination count={totalPages} page={page} onChange={(event, value) => { setPage(value); }} />
+            <Pagination
+              count={totalPages}
+              page={page}
+              onChange={(event, value) => setPage(value)}
+              shape="rounded"
+              color="primary"
+            />
           </div>
         </div>
       </div>

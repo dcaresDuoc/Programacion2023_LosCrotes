@@ -53,3 +53,28 @@ export const useProID = (id) => {
   
   return { profesional, loading }
 }
+
+export const useProSlug = (slug) => {
+  const [profesionales, setProfesionales] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+
+    const fetchProfesionalBySlug = async () => {
+      const response = await fetch(`/api/slug/${slug}`)
+      const data = await response.json()
+      setProfesionales(data)
+      setLoading(false)
+    }
+
+    const timer = setTimeout(() => {
+      fetchProfesionalBySlug()
+    }, 1000) 
+
+    return () => clearTimeout(timer)
+
+  },[slug])
+
+  return { profesionales, loading }
+}

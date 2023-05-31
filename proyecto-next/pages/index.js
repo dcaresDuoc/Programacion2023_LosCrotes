@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import {Navbar,
+import {
   Hero,
   InfoBrand,
   AboutSection,

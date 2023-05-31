@@ -44,7 +44,9 @@ export default function Slicer() {
       navigation={true}
       modules={[Pagination, Navigation]}
     >
-      {profesionales.map((profesional) => (
+      {profesionales
+        .slice(0, 6)
+        .map((profesional) => (
         <SwiperSlide key={profesional.id_profesional}>
           {loading ? (
             <Stack spacing={2}>

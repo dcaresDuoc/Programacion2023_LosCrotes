@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Roboto:ital,wght@0,400;0,700;1,100;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
 :root {
   --max-width: 1100px;
@@ -56,7 +57,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 html,
@@ -64,10 +65,10 @@ body {
   max-width: 100vw;
   ::-webkit-scrollbar {
     background-color: transparent;
-    width: 5px;
+    width: 10px;
   }
   ::-webkit-scrollbar-thumb{
-    background-color: #9e43b9;
+    background-color: var(--bg-button-color);
   }
   background-color: var(--bg-principal);
 
@@ -130,10 +131,12 @@ body {
       justify-items: center;
       width: 1100px;
       
+      
       a{
         color: black;
       }
       .cartas {
+        border: 2px solid var(--bg-button-color);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -143,14 +146,23 @@ body {
         width: 320px;
         height: 300px;
         padding: 40px;
-        border-radius: 10px;
+        border-radius: 5px;
 
         &:hover{
           scale: 1.1
         }
 
         h2 {
-          font-size: 35px;
+          font-size: 30px;
+        }
+
+        p {
+          display: -webkit-box;
+          -webkit-line-clamp: 6; /* Número de líneas que deseas mostrar */
+          -webkit-box-orient: vertical;
+          text-align: start;
+          overflow: hidden;
+          font-size: medium;
         }
       }
     }
@@ -287,16 +299,17 @@ body {
           a {
             color: black;
             // background-color: #aaa6a6;
+            font-weight: 700;
             padding: 10px 30px;
             border-radius: 10px;
             text-align: center;
             position: relative;
             top: 5px;
             transition: all 0.3s ease-in;
-            border: 2px solid #aaa6a6;
+            border: 2px solid var(--bg-button-color);
 
               &:hover {
-              background-color: var(--bg-hover-color);
+              background-color: #eee3cb87;
               transition: all 0.3s ease-in-out;  
             }       
           }
@@ -306,10 +319,10 @@ body {
             display: block;
             background-color: #F6F1F1;
             position: absolute;
-            top: 28px;
+            top: 30px;
             width: 210px;
             z-index: 13;
-            left: 390px;
+            left: 405px;
             overflow: auto;
             scroll-snap-type: none;
             height: 500px;
@@ -362,24 +375,29 @@ body {
 
         .signup-session {
           a{
-            border: 2px solid var(--border-color);
+            font-weight: 700;
+            border: 2px solid var(--bg-button-color);
             color: black;
             padding: 10px 30px;
-            border-radius: 10px;
+            border-radius: 5px;
             &:hover {
-              background-color: var(--bg-hover-color);
+              background-color: #eee3cb87;
             }
           }
         }
 
         .register-session {
           a{
-            background-color: var(--border-color);
+            font-weight: 700;
+            background-color: var(--bg-button-color);
+            border: 2px solid var(--bg-button-color);
             padding: 10px 30px;
-            border-radius: 10px;
-            color: black;
+            border-radius: 5px;
+            color: var(--bg-principal);
+
             &:hover {
-              background-color: var(--bg-hover-color);
+              color: var(--bg-button-color);
+              background-color: #eee3cb87;
             }
           }
         }
@@ -561,130 +579,105 @@ body {
 
 
 
-.about-section {
+.section-about {
   min-height: 100vh;
 
-  .back {
-    position: absolute;
-    width: 100px;
-    height: 80px;
-    left: 20px;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
+  .container-about {
+    padding-top: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 90px;
 
-  .container-info {
-    
-    .left-info {
-      padding: 40px 0 30px 0;
-      display: flex;
-      justify-content: center;
 
-      .image-container {
-        display: flex;
-        gap: 200px;
-        position: relative; 
-        overflow: hidden;
-      
-        img {
-          display: block;
-          transition: transform 0.3s ease;
-        }
-      
-        &:hover {
-          img {
-            transform: scale(1.2);
-          }
-      
-          &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 2px solid transparent;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: border-color 0.3s ease, opacity 0.3s ease;
-          }
-      
-          &:after {
-            content: "";
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            width: calc(100% + 4px);
-            height: calc(100% + 4px);
-            border: 2px solid transparent;
-            box-sizing: border-box;
-            opacity: 0;
-            transition: border-color 0.3s ease, opacity 0.3s ease;
-          }
-      
-          &::before,
-          &:after {
-            pointer-events: none;
-          }
-      
-          &::before {
-            border-top-color: #fff;
-            border-right-color: #fff;
-          }
-      
-          &:after {
-            border-bottom-color: #fff;
-            border-left-color: #fff;
-          }
-      
-          img,
-          &::before,
-          &:after {
-            animation: shimmer 1s infinite;
-          }
-        }
-      }
-      
-      @keyframes shimmer {
-        0% {
-          opacity: 0.5;
-        }
-      
-        50% {
-          opacity: 1;
-        }
-      
-        100% {
-          opacity: 0.5;
-        }
-      }
-      
+    h1 {
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 70px;
+      font-weight: 900;
+      width: 65%;
     }
 
-    .right-info {
+
+    .boxes {
+      height: 60vh;
+      width: 80%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      width: 1000px;
-      left: 250px;
+      gap: 20px;
 
-      p {
-        background-color: white;
-        border-radius: 20px;
-        padding: 20px 30px;
-        font-size: 17px;
-      }
       
+
+      h2 {
+        font-size: 70px;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 900;
+        width: 65%;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .historia {
+        border: 2px solid black;
+        width: 100%;
+        padding: 10px 20px;
+        position: relative;
+        background-color: var(--bg-principal);
+
+        &::after{
+          content: "";
+          width: 100%;
+          height: 100%;
+          background-color: #EEE3CB;
+          position: absolute;
+          top: 18px;
+          left: 18px;
+          z-index: -1;
+        }
+        
+        p {
+          font-size: 25px;
+          font-weight: 500;
+          font-family: 'Nunito', sans-serif;
+        }
+      }
+
+      .partners {
+        border-radius: 5px;
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+        padding: 10px 20px 50px;
+        
+
+        div {
+          border: 2px solid black;
+          width: 50%;
+          position: relative;
+          background-color: var(--bg-principal);
+
+          &::after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: #EEE3CB;
+            position: absolute;
+            top: 18px;
+            left: 16px;
+            z-index: -1;
+          }
+          
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     }
-    
   }
-
-
 }
 
 
@@ -975,7 +968,6 @@ body {
 .section-contact {
   display: flex;
   height: 100vh;
-  background-color: white;
 
   .logo-brand {
     position: absolute;
@@ -990,6 +982,7 @@ body {
 
   .container-contact {
     display: flex;
+    padding-top: 100px;
 
     .contact-text {
       margin: 100px 30px 15px 20px;
@@ -1002,7 +995,7 @@ body {
       div {
         
         h1 {
-          font-size: 25px;
+          font-size: 30px;
           margin: 0;
         }
 
@@ -1014,16 +1007,17 @@ body {
     }
 
     .form-contact {
-      background-color: #d3afde;
+      background-color: #EEE3CB;
       margin: 15px 10px;
       border-radius: 20px;
       display:flex;
       flex-direction: column;
+      border: 1px solid black;
 
       h1 {
         margin: 0;
         text-align: center;
-        font-size: 30px;
+        font-size: 40px;
         padding: 10px 80px;
       }
 
@@ -1067,9 +1061,10 @@ body {
     }
   }
 
-  @media (min-width: 280px){
+  @media (min-width: 280px) and (max-width: 479px){
 
     .container-contact{
+      padding: 0;
 
       .contact-text {
         display: none;
@@ -1096,13 +1091,14 @@ body {
       }
     }
   }
-  @media (min-width: 480px){
+  @media (min-width: 480px) and (max-width: 767px){
     .container-contact{
+      padding: 20px;
 
       .contact-text {
         display: inline-flex;
         padding: 0;
-        margin: 70px 5px 20px 20px;
+        margin: 0 5px 20px 20px;
 
         div {
           h1{
@@ -1140,13 +1136,13 @@ body {
     }
   }
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) and (max-width: 1023px){
     .container-contact{
-      gap: 20px;
+      padding: 20px;
       .contact-text {
         display: inline-flex;
         padding: 0;
-        margin: 70px 25px 20px 30px;
+        margin: 0 25px 20px 30px;
 
         div {
           h1{
@@ -1251,15 +1247,14 @@ body {
       .contact-text {
         display: inline-flex;
         padding: 10px;
-        margin: 65px 10px 20px 45px;
+        margin: 0 10px 20px 45px;
 
         div {
-          width: 300px;
           position: relative;
           padding-left: 10px;
 
           .icon {
-            background-color: #00000010;
+            background-color: #EEE3CB;
             border: 1px solid rgba(0, 0, 0, 0.348);
             position: absolute;
             top: 5px;
@@ -1270,7 +1265,7 @@ body {
             color: black;
           }
           h1{
-            font-size: 23px;
+            font-size: 30px;
           }
           h5 {
             font-size: 16px;
@@ -1288,7 +1283,8 @@ body {
         border-radius: 20px;
 
         h1 {
-          font-size: 28px;
+          font-size: 50px;
+          font-family: 'Nunito', sans-serif;
           padding: 30px 90px;
         }
         h5 {
@@ -1641,14 +1637,14 @@ body {
 
   // ABOUT SECTION 
 
-  .section-about {
+  .section-brand_about {
     margin: 100px 0 200px 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 
-    .container-info {
+    .container-brand_info {
       width: 900px;
       display: flex;
       justify-content: space-between;
@@ -1663,7 +1659,7 @@ body {
         padding-right: 200px;
         
 
-        .container-about {
+        .container-brand_about {
           position: relative;
           top: 50px;
           background: 200px;
@@ -1755,7 +1751,7 @@ body {
 
   @media (max-width: 550px){
     .section-about {
-      .container-info {
+      container-brand_info {
         width: auto;
         flex-direction: column;
         align-items: center;
@@ -1797,7 +1793,7 @@ body {
     .section-about {
       margin-top: 200px;
 
-      .container-info{
+      .container-brand_info{
         width: auto;
         align-items: center;
         padding: 0 20px 0 20px;
@@ -1828,7 +1824,7 @@ body {
 
   @media (min-width: 721px) and (max-width: 1024px){
     .section-about {
-      .container-info{
+      .container-brand_info{
         width: auto;
         align-items: center;
         padding: 0 50px 0 50px;

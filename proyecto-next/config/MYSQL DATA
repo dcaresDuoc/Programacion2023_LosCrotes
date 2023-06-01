@@ -15,7 +15,7 @@ CREATE TABLE profesion (
   nombre VARCHAR(255) NOT NULL,
   slug VARCHAR(255) NOT NULL,
   cod_profesion VARCHAR(100) NOT NULL,
-  descripcion VARCHAR(255)
+  descripcion TEXT
 );
 
 CREATE TABLE profesionales (
@@ -27,7 +27,7 @@ CREATE TABLE profesionales (
   direccion VARCHAR(255),
   biografia TEXT,
   profesion VARCHAR(20),
-  cuidad VARCHAR(255),
+  ciudad VARCHAR(255),
   region VARCHAR(255),
   comuna VARCHAR(255),
   id_profesion INT,
@@ -78,7 +78,7 @@ INSERT INTO profesionales (id_profesional, nombre, correo, contrasena, telefono,
 (29, 'Roberto Morales', 'roberto.morales@gmail.com', '123456', '+56987654321', 'Calle General Bustamante 234', 'Ingeniero civil especializado en estructuras con 10 años de experiencia. Me apasiona diseñar y construir edificios y puentes que sean seguros y eficientes.', 'ingeniero-civil', 'Santiago', 'Santiago', 'Santiago', 9);
 
 
-INSERT INTO clientes (nombre, correo_electronico, contrasena, telefono, direccion, cuidad, region, comuna) VALUES 
+INSERT INTO clientes (nombre, correo_electronico, contrasena, telefono, direccion, ciudad, region, comuna) VALUES 
 ('Juan Perez', 'juanperez@gmail.com', '123456', '+56987654321', 'Calle Falsa 123', 'Santiago', 'Santiago', 'Las Condes'),
 ('María González', 'mariagonzalez@hotmail.com', 'abc123', '+56222333444', 'Avenida Siempre Viva 456', 'Valparaíso', 'Valparaíso', 'Viña del Mar'),
 ('Pedro Fernández', 'pedrofernandez@yahoo.com', 'qwerty', '+56912345678', 'Calle del Pez 789', 'Concepción', 'Biobío', 'Talcahuano');

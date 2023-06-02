@@ -73,8 +73,125 @@ body {
 
 }
 
+.container-profesional {
+  padding-top: 100px;
+  min-height: 100vh;
+  width: 80%;
+  margin: auto;
 
- // testeo de estilos de professionals-page
+  .middle-section-profesional {
+    display: flex;
+    justify-content: space-around;
+    height: 335px;
+    gap: 10px;
+
+    .profesional-info {
+      background-color: #ffffff47;
+      border-radius: 10px;
+      box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.292);
+      width: 50%;
+      display: flex;
+      padding: 10px 20px;
+
+      .pro-photo {
+        width: 150%;
+        margin: auto;
+        box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.371);
+        border-radius: 50%;
+        height: 75%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .pro-details {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
+        gap: 20px;
+        margin: auto;
+        border: 1px solid black;
+
+        span {
+          font-size: 25px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .pro-calendar {
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      
+
+      .Calendar {
+        width: 100%;
+        margin: auto;
+
+        // max-height: calc(100% - 100px); /* Resta el espacio ocupado por el margen superior e inferior */
+
+        .rbc-month-view {
+          flex-basis: 250px;
+        }
+
+        .rbc-calendar {
+          background-color:  #EEE3CB;
+          height: 330px;
+          border: 2px solid black;
+          border-radius: 5px;
+          padding: 5px 10px;
+          box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.371);
+
+        }
+
+        .rbc-toolbar {
+          flex-wrap: nowrap;
+
+        }
+
+        .rbc-off-range-bg {
+          background-color: #46464640;
+        }
+
+        .rbc-btn-group {
+          color: var(--bg-button-color);
+        }
+
+        .rbc-toolbar-label {
+          font-weight: bold;
+          font-size: 15px;
+          color: var(--bg-button-color);
+        }
+
+        .rbc-date-cell {
+          color: rgb(41, 41, 41);
+        }
+
+        .rbc-today {
+          background-color:#cdbea7 ;
+        }
+
+        @media (max-width: 480px) {
+          .rbc-toolbar {
+            display: block !important;
+          }
+        }
+      }
+
+      .rbc-calendar {
+        max-height: 100vh;
+        overflow: auto;
+      }
+    }
+  }
+}
+
+
 
 .section-specs {
   min-height: 100vh;

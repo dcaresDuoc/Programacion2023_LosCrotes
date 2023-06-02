@@ -2,12 +2,21 @@ import { useProID } from '@/hooks/usePro';
 import { useRouter } from 'next/router';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import Image from 'next/image'
+import Gato from '../../public/miau.jpg'
+import { MyCalendar } from '@/components/Calendar';
+import { useState } from 'react';
 
 
 const professionalDetails = () => {
   const router = useRouter();
   const { id } = router.query;
   const { profesional } = useProID(id);
+  const [hoursSelected, setHoursSelected] = useState([])
+
+  const handleSelectedHours = (hours) => {
+    setHoursSelected(hours);
+  };
 
   if (!profesional) {
     return (
@@ -23,14 +32,28 @@ const professionalDetails = () => {
   }
 
   return (
-    <div>
-      {profesional.map(pro => (
-        <div key={pro.id_profesional}>
-          <h1>{pro.nombre}</h1>
-          <h2>{pro.correo}</h2>
+    <main className='container-profesional'>
+
+      <div className='middle-section-profesional'>
+        {profesional.map(pro => (
+          <div key={pro.id_profesional} className='profesional-info'>
+
+            <div className='pro-photo'>
+              <Image src={Gato} alt='cositas ruicas' width={100} height={100}/>
+            </div>
+            <div className='pro-details'>
+              <span>{pro.nombre}</span>
+              <span>{pro.correo}</span>
+              <span>{pro.telefono}</span>
+            </div>
+          </div>
+          ))}
+
+        <div className='pro-calendar'>
+          <MyCalendar onSelectedHours={handleSelectedHours}/>
         </div>
-        ))}
-    </div>
+      </div>
+    </main>
   );
 };
 

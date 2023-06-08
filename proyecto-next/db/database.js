@@ -1,8 +1,8 @@
-const { Sequelize } = require('sequelize');
+import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize('findsome', 'root', 'Nico123', {
+const sequelize = new Sequelize('find-some', 'root', '', {
   host: 'localhost',
-  dialect: 'mysql', // O el dialecto que estés utilizando (por ejemplo, 'postgres' para PostgreSQL)
+  dialect: 'mysql'
 });
 
-module.exports = sequelize;
+export default sequelize;

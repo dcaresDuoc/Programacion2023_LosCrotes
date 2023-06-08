@@ -14,6 +14,8 @@ const professionalDetails = () => {
   const { profesional } = useProID(id);
   const [hoursSelected, setHoursSelected] = useState([])
 
+  console.log(profesional)
+
   const handleSelectedHours = (hours) => {
     setHoursSelected(hours);
   };

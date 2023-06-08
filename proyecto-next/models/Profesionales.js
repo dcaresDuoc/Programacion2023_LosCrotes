@@ -1,7 +1,9 @@
-const { DataTypes } = require('sequelize');
-const db = require('../db');
+import { Sequelize, DataTypes } from 'sequelize';
+import sequelize from '../db/database'
+import Profesion from './Profesion';
 
-const Profesional = db.define('profesional', {
+// Modelo Profesional
+const Profesionales = sequelize.define('Profesional', {
   id_profesional: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -29,8 +31,7 @@ const Profesional = db.define('profesional', {
     type: DataTypes.TEXT
   },
   profesion: {
-    type: DataTypes.STRING(20),
-    allowNull: false
+    type: DataTypes.STRING(20)
   },
   ciudad: {
     type: DataTypes.STRING(255)
@@ -40,12 +41,17 @@ const Profesional = db.define('profesional', {
   },
   comuna: {
     type: DataTypes.STRING(255)
+  },
+  id_profesion: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: Profesion,
+      key: 'id_profesion'
+    }
   }
+}, {
+  tableName: 'profesionales',
+  timestamps: false
 });
 
-// Definir relación con la tabla Profesion
-const Profesion = require('./profesion');
-
-Profesional.belongsTo(Profesion, { foreignKey: 'id_profesion' });
-
-module.exports = Profesional;
+export default Profesionales;

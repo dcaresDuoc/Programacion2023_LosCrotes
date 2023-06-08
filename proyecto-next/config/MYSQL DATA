@@ -34,6 +34,14 @@ CREATE TABLE profesionales (
   FOREIGN KEY (id_profesion) REFERENCES profesion(id_profesion)
 );
 
+
+CREATE TABLE contacto (
+  id_contacto INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  mensaje TEXT
+);
+
 INSERT INTO profesion (nombre, slug, cod_profesion, descripcion) VALUES
 ('Servicios eléctricos', 'servicios-electricos', 'ELE-01', 'Realización de instalaciones eléctricas y reparaciones.'),
 ('Informática y Telecomunicaciones', 'informatica-telecomunicaciones', 'INF-02', 'Desarrollo y mantenimiento de sistemas informáticos y redes de comunicación.'),

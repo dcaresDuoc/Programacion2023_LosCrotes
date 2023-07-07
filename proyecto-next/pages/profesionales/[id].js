@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import Image from 'next/image'
-import Gato from '../../public/miau.jpg'
+import Niko from '../../public/Niko_opt3.png'
 import { MyCalendar } from '@/components/Calendar';
 import { useState } from 'react';
 
@@ -39,7 +39,7 @@ const professionalDetails = () => {
           <div key={pro.id_profesional} className='profesional-info'>
 
             <div className='pro-photo'>
-              <Image src={Gato} alt='cositas ruicas' width={100} height={100}/>
+              <Image src={Niko} alt='cositas ruicas' width={500} height={500}/>
             </div>
             <div className='pro-details'>
               <span>{pro.nombre}</span>

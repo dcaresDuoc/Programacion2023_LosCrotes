@@ -1,4 +1,4 @@
-REATE TABLE clientes (
+CREATE TABLE clientes (
   id_cliente INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(255) NOT NULL,
   correo_electronico VARCHAR(255) NOT NULL,
@@ -32,6 +32,14 @@ CREATE TABLE profesionales (
   comuna VARCHAR(255),
   id_profesion INT,
   FOREIGN KEY (id_profesion) REFERENCES profesion(id_profesion)
+);
+
+
+CREATE TABLE contacto (
+  id_contacto INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  mensaje TEXT
 );
 
 INSERT INTO profesion (nombre, slug, cod_profesion, descripcion) VALUES

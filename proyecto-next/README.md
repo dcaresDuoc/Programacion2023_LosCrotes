@@ -1,42 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Proyecto Findsome
 
-## Getting Started
+Findsome es una plataforma innovadora que ofrece servicios de profesionales por hora y facilita la organización de citas y agenda. Conectando a usuarios y profesionales de diferentes campos, Findsome brinda la posibilidad de contratar expertos para realizar tareas específicas de forma rápida y eficiente. Ya sea que necesites un plomero, un diseñador gráfico o un entrenador personal, Findsome te permite buscar y contratar profesionales cualificados con solo unos pocos clics. Además, su función de agenda integrada simplifica la programación de citas y reuniones, permitiéndote administrar tu tiempo de manera efectiva. Con Findsome, encontrar profesionales y gestionar tu agenda nunca ha sido tan fácil.
 
-First, run the development server:
+## Lenguaje
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Findsome es una plataforma versátil desarrollada utilizando Node.js y React. Esta combinación de tecnologías líderes en el mercado garantiza un rendimiento sólido y una experiencia de usuario fluida. Node.js, como lenguaje de backend, proporciona un entorno de ejecución eficiente y escalable, permitiendo que la plataforma maneje múltiples solicitudes de usuarios de manera simultánea. Por otro lado, React, como biblioteca de JavaScript para construir interfaces de usuario, brinda una interfaz interactiva y receptiva, mejorando la usabilidad y la interacción con los servicios ofrecidos en Findsome. Gracias a la combinación de Node.js y React, Findsome ofrece una plataforma robusta y moderna que satisface las necesidades de búsqueda de profesionales y gestión de agenda de los usuarios de manera eficiente y efectiva.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnología
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+La tecnología utilizada en este proyecto incluye:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- **Node.js**: como mencionamos anteriormente, Node.js es el lenguaje principal utilizado para desarrollar la parte del servidor de la aplicación.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- **React**: React es una biblioteca JavaScript de código abierto utilizada para construir interfaces de usuario. Con React, es posible crear componentes reutilizables y construir interfaces de usuario dinámicas y de alto rendimiento.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Framework
 
-## Learn More
+El framework utilizado en la página Findsome es React. React es una biblioteca de JavaScript de código abierto que se utiliza para construir interfaces de usuario interactivas y eficientes. Con React, Findsome puede crear componentes reutilizables y construir una interfaz de usuario dinámica y de alto rendimiento. React utiliza un enfoque basado en componentes, lo que significa que cada parte de la interfaz de usuario se divide en componentes independientes y reutilizables, lo que facilita el desarrollo, la depuración y el mantenimiento del código. Además, React utiliza un modelo de actualización eficiente llamado "Virtual DOM" que minimiza los cambios en el DOM real, lo que resulta en una experiencia de usuario más fluida y rápida. Gracias a React, Findsome puede ofrecer una experiencia de usuario moderna, interactiva y altamente funcional a sus usuarios.
 
-To learn more about Next.js, take a look at the following resources:
+## ORM
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+El ORM (Object-Relational Mapping) utilizado en este proyecto es **Sequelize**. Sequelize es un ORM para Node.js que admite múltiples bases de datos relacionales, incluyendo MySQL, PostgreSQL y SQLite. Proporciona una forma sencilla y eficiente de interactuar con la base de datos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Base de Datos utilizada
 
-## Deploy on Vercel
+La base de datos utilizada en la página Findsome es MySQL. MySQL es un sistema de gestión de bases de datos relacional ampliamente utilizado y altamente confiable. Con MySQL, Findsome puede almacenar y gestionar eficientemente una gran cantidad de datos relacionados con los usuarios, profesionales, citas y otros aspectos clave de la plataforma. MySQL ofrece una gran velocidad de acceso a los datos y una capacidad de procesamiento eficiente, lo que garantiza un rendimiento óptimo incluso en entornos de alta carga. Además, MySQL proporciona una amplia gama de funciones y características avanzadas, como consultas complejas, índices y transacciones, que son fundamentales para garantizar la integridad y consistencia de los datos en Findsome. En resumen, la elección de MySQL como base de datos subyacente en Findsome asegura una gestión segura, eficiente y confiable de los datos, contribuyendo así al funcionamiento exitoso de la plataforma.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
-
+## Imágenes
 

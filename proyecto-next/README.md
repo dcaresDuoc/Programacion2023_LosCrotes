@@ -25,6 +25,11 @@ El ORM (Object-Relational Mapping) utilizado en este proyecto es **Sequelize**. 
 
 ![Alt text](<public/Captura de pantalla (6).png>)
 
+
+este es el mapa de la autenticacion de los usuario 
+
+[Title](public) ![Title](<public/autentificacion de usuario.png>)
+
 ## Base de Datos utilizada
 
 La base de datos utilizada en la página Findsome es MySQL. MySQL es un sistema de gestión de bases de datos relacional ampliamente utilizado y altamente confiable. Con MySQL, Findsome puede almacenar y gestionar eficientemente una gran cantidad de datos relacionados con los usuarios, profesionales, citas y otros aspectos clave de la plataforma. MySQL ofrece una gran velocidad de acceso a los datos y una capacidad de procesamiento eficiente, lo que garantiza un rendimiento óptimo incluso en entornos de alta carga. Además, MySQL proporciona una amplia gama de funciones y características avanzadas, como consultas complejas, índices y transacciones, que son fundamentales para garantizar la integridad y consistencia de los datos en Findsome. En resumen, la elección de MySQL como base de datos subyacente en Findsome asegura una gestión segura, eficiente y confiable de los datos, contribuyendo así al funcionamiento exitoso de la plataforma.

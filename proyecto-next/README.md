@@ -16,7 +16,7 @@ La tecnología utilizada en este proyecto incluye:
 
 ## Framework
 
-El framework utilizado en la página Findsome es Next. framework de React que es una biblioteca de JavaScript de código abierto que se utiliza para construir interfaces de usuario interactivas y eficientes. Con React, Findsome puede crear componentes reutilizables y construir una interfaz de usuario dinámica y de alto rendimiento. React utiliza un enfoque basado en componentes, lo que significa que cada parte de la interfaz de usuario se divide en componentes independientes y reutilizables, lo que facilita el desarrollo, la depuración y el mantenimiento del código. Además, React utiliza un modelo de actualización eficiente llamado "Virtual DOM" que minimiza los cambios en el DOM real, lo que resulta en una experiencia de usuario más fluida y rápida. Gracias a React, Findsome puede ofrecer una experiencia de usuario moderna, interactiva y altamente funcional a sus usuarios.
+El framework utilizado en la página Findsome es React. React es una biblioteca de JavaScript de código abierto que se utiliza para construir interfaces de usuario interactivas y eficientes. Con React, Findsome puede crear componentes reutilizables y construir una interfaz de usuario dinámica y de alto rendimiento. React utiliza un enfoque basado en componentes, lo que significa que cada parte de la interfaz de usuario se divide en componentes independientes y reutilizables, lo que facilita el desarrollo, la depuración y el mantenimiento del código. Además, React utiliza un modelo de actualización eficiente llamado "Virtual DOM" que minimiza los cambios en el DOM real, lo que resulta en una experiencia de usuario más fluida y rápida. Gracias a React, Findsome puede ofrecer una experiencia de usuario moderna, interactiva y altamente funcional a sus usuarios.
 
 ## ORM
 
@@ -32,5 +32,6 @@ La base de datos utilizada en la página Findsome es MySQL. MySQL es un sistema 
 
 
 ## Imágenes
+https://drive.google.com/drive/folders/1uJ1ZrmscdZG4si_X8t_1VnJDiy5qMDOG?usp=sharing
 
 https://drive.google.com/drive/folders/1uJ1ZrmscdZG4si_X8t_1VnJDiy5qMDOG

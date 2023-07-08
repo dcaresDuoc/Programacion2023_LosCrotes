@@ -28,3 +28,4 @@ La base de datos utilizada en la página Findsome es MySQL. MySQL es un sistema 
 
 ## Imágenes
 
+![Alt text](<Captura de pantalla (1).png>)
